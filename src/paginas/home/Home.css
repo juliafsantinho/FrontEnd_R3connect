@@ -1,0 +1,20 @@
+.caixa{
+    background-color: white;
+    margin-top: 50px;
+    min-height: 100vh;
+}
+
+.titulo{
+    color: #1E6B27 !important; 
+    font-weight: bold !important; 
+}
+
+.botao{
+    border-color: #1E6B27 !important; 
+    background-color: #1E6B27; 
+    color: #1E6B27 !important;
+}
+
+.postagem{
+    background-color: white;
+}
