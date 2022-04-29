@@ -4,15 +4,27 @@ import Navbar from './componentes/estaticos/navbar/Navbar';
 import Footer from './componentes/estaticos/footer/Footer';
 import Home from './paginas/home/Home';
 import Login from './paginas/login/Login';
-import Sobre from './paginas/sobreNos/Sobre'
+import Sobre from './paginas/sobreNos/Sobre';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <>
-        <Navbar />
-        <Sobre />
-        <Footer />
-    </>
+    <Router>
+      <Navbar />
+      <div>
+        <Routes>
+          <Route path='/home' element={<Home />} />
+          <Route path='/' element={<Login/>}/>
+          <Route path='/login' element={<Login />} />
+          <Route path='/sobre' element={<Sobre />} />
+
+
+        </Routes>
+      </div>
+      <Footer />
+
+    </Router>
+
   );
 }
 

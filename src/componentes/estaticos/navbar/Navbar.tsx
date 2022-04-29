@@ -15,6 +15,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import {Link} from 'react-router-dom';
 
 import './Navbar.css';
 
@@ -176,11 +177,32 @@ function Navbar() {
             color="inherit"
             aria-label="open drawer"
           >
-            <MenuIcon />
+          <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
             R3connect
           </Typography>
+          <Link to='/home'>
+          <Typography className={classes.title} variant="h6" noWrap>
+            <div className='margem-paginas'>
+            home
+            </div>
+          </Typography>
+          </Link>
+          <Link to='/login'>
+          <Typography className={classes.title} variant="h6" noWrap>
+            <div className='margem-paginas'>
+            login
+            </div>
+          </Typography>
+          </Link>
+          <Link to='/sobre'>
+          <Typography className={classes.title} variant="h6" noWrap>
+            <div className='margem-paginas'>
+            sobre
+            </div>
+          </Typography>
+          </Link>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />

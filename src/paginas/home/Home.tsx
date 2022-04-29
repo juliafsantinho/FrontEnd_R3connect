@@ -47,10 +47,7 @@ function Home(){
                 </Grid>
 
                 
-                <div className={classes.root}>
-                    <Avatar alt="Remy Sharp" src="../../assets/logo.png" className={classes.large} />
-                 </div>
-
+                
 
             </Grid>
         </>
