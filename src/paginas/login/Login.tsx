@@ -17,7 +17,7 @@ function Login() {
                         <Box marginTop={2} textAlign='center'>
                             {/* <Link to='/home' className='text-decorator-none'> */}
                             <Link to='/home'>
-                                <Button type='submit' variant='contained' color='primary'>
+                                <Button type='submit' variant='contained' className="botao2" color="primary">
                                     Logar
                                 </Button>
                             </Link>
