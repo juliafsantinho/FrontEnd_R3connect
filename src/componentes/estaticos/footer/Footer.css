@@ -1,0 +1,18 @@
+.textos {
+    color: white;
+}
+
+.box1 {
+    background-color: #35A538;
+    height: 100px;
+}
+
+.box2 {
+    background-color: #1E6B27;
+    height: 60px;
+}
+
+.redes {
+    font-size: 50px!important;
+    color: white;
+}

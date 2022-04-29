@@ -1,9 +1,15 @@
 import React from 'react';
 import './App.css';
+import Navbar from './componentes/estaticos/navbar/Navbar';
+import Footer from './componentes/estaticos/footer/Footer';
 
 function App() {
   return (
-   <h1>titulo</h1>
+    <>
+        <Navbar />
+
+        <Footer />
+    </>
   );
 }
 
