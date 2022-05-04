@@ -11,11 +11,11 @@ function CadastroUsuario() {
     const [confirmarSenha, setConfirmarSenha] = useState<String>('');
     const [usuarioCadastro, setUsuarioCadastro] = useState<User>({
         id: 0,
-        nome: ' ',
-        usuario: ' ',
-        senha: ' ',
+        nome: '',
+        usuario: '',
+        senha: '',
        // foto: ' ',
-        cep: ' ',
+        cep: '',
         contribuicao: 0
     })
     function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>) {
@@ -23,11 +23,11 @@ function CadastroUsuario() {
     }
     const [usuarioResult, setUsuarioResult] = useState<User>({
         id: 0,
-        nome: ' ',
-        usuario: ' ',
-        senha: ' ',
+        nome: '',
+        usuario: '',
+        senha: '',
        // foto: ' ',
-        cep: ' ',
+        cep: '',
         contribuicao:0
     })
     function updatedModel(e: ChangeEvent<HTMLInputElement>) {
@@ -45,7 +45,9 @@ function CadastroUsuario() {
     async function cadastrar(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
         if (confirmarSenha == usuarioCadastro.senha && usuarioCadastro.senha.length >= 8) {
-            try {
+            try { 
+                console.log(usuarioCadastro)                                             
+
                 await cadastroUsuario(`/usuarios/cadastrar`, usuarioCadastro, setUsuarioResult);
                 alert('Usuário cadastrado tranquilamente!')
             } catch (error) {
@@ -73,11 +75,11 @@ function CadastroUsuario() {
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='tituloC'>
                             Cadastre-se
                         </Typography>
-                        <TextField value={usuarioCadastro.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='nome' label='nome' name='nome' variant='outlined' required fullWidth />
+                        <TextField value={usuarioCadastro.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='nome' label='nome' name='nome' variant='outlined' placeholder='insira um nome de no mínimo cinco carácteres' required fullWidth />
                         <TextField value={usuarioCadastro.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='usuario' label='usuário' name='usuario' placeholder='insira seu email' variant='outlined' required fullWidth  />
                         <TextField value={usuarioCadastro.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' type='password' id='senha' label='senha' name='senha' placeholder='insira uma senha de até oito digitos' variant='outlined' required fullWidth  />
                         <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} className='margin-bottom' id='senha' type='password' label='confirmar senha' name='senha' placeholder='insira a senha novamente' variant='outlined' required fullWidth  />
-                        <TextField value={usuarioCadastro.cep} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='cep' label='cep' name='cep' variant='outlined'  placeholder='insira seu cep' fullWidth required />
+                        <TextField value={usuarioCadastro.cep} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='cep' label='cep' name='cep' variant='outlined'  placeholder='insira seu cep,cuidado com o espaço antes dos carácteres,tire-o' fullWidth required />
                         {/* <TextField value={usuarioCadastro.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='foto' label='foto' name='foto' placeholder='insira um link de uma foto' variant='outlined' fullWidth  />  */}
                         <TextField value={usuarioCadastro.contribuicao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='contribuicao' label='contribuição' name='contribuicao' variant='outlined' fullWidth placeholder='insira o quanto deseja contribuir para causas sociais e ambientais' />
 
