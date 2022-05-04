@@ -1,0 +1,26 @@
+.imgC{
+    background-repeat: no-repeat; 
+    width: 275px; 
+    height: 275px;
+    background-size: cover; 
+    background-position: center;
+    
+
+}
+
+.tituloC{
+    font-weight: bold!important;
+}
+
+.button{
+    padding:11px!important;
+    margin:33px!important;
+}
+
+.margin-bottom{
+    margin-bottom: 20px!important;
+}
+
+.text-decorator-none{
+ text-decoration: none;
+}

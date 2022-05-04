@@ -182,21 +182,21 @@ function Navbar() {
           <Typography className={classes.title} variant="h6" noWrap>
             R3connect
           </Typography>
-          <Link to='/home'>
+          <Link to='/home' className='text-decorator-none'>
           <Typography className={classes.title} variant="h6" noWrap>
             <div className='margem-paginas'>
             home
             </div>
           </Typography>
           </Link>
-          <Link to='/login'>
+          <Link to='/login' className='text-decorator-none'>
           <Typography className={classes.title} variant="h6" noWrap>
             <div className='margem-paginas'>
             login
             </div>
           </Typography>
           </Link>
-          <Link to='/sobre'>
+          <Link to='/sobre' className='text-decorator-none'>
           <Typography className={classes.title} variant="h6" noWrap>
             <div className='margem-paginas'>
             sobre

@@ -5,3 +5,7 @@
 .margem-paginas{
     padding: 13px;
 }
+
+.text-decorator-none{
+    text-decoration: none;
+}
