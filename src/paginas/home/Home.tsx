@@ -1,8 +1,34 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Box, Button , Grid , Typography, Avatar} from '@material-ui/core';
+import { Box, Button , Grid , Typography,} from '@material-ui/core';
 import './Home.css';
+import TabProduto from "../../componentes/produto/tabProduto/tabProduto";
+import ModalProduto from "../../componentes/produto/modalProduto/modalProduto";
+import { useNavigate } from "react-router-dom";
+import {useSelector} from 'react-redux';
+import {TokenState} from '../../store/tokens/tokensReducer'
+import {toast} from 'react-toastify'
 
+let navigate=useNavigate()
+const token=useSelector<TokenState,TokenState["tokens"]>(
+  (state)=>state.tokens
+)
+
+useEffect(()=>{
+  if(token==''){
+      toast.error('Usuário não logado!',{
+          position:'top-right',
+          theme:'colored',
+          autoClose:1999,
+          pauseOnHover:false,
+          closeOnClick:true,
+          hideProgressBar:false,
+          progress:undefined
+  
+      }
+      )
+      navigate("/login")
+  }},[token])
 const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
@@ -20,6 +46,10 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
+function produtos(){
+  navigate('/produtos')
+}
+
 function Home(){
 
     
@@ -36,14 +66,16 @@ function Home(){
                     </Box>
                     <Box display="flex" justifyContent="center">
                         <Box marginRight={1}>
+                          <ModalProduto/>
                         </Box>
-                        <Button variant="outlined" className="botao">Ver Produtos</Button>
+                        <Button onClick={produtos} variant="outlined" className="botao">Ver Produtos</Button>
                     </Box>
                 </Grid>
                 <Grid item xs={6} >
                     <img src="https://i.imgur.com/RgQcsNy.png" alt="logo"/>
                 </Grid>
-                <Grid xs={12} className="postagem">
+                <Grid xs={12} className="produto">
+                  <TabProduto/>
                 </Grid>
 
                 
