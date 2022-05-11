@@ -16,8 +16,11 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import {Link} from 'react-router-dom';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+
 
 import './Navbar.css';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -102,11 +105,10 @@ function Navbar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const [token, setToken] = useLocalStorage('token')
-   
-    async function zerarToken(){
-            await setToken('')
-    }
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  )   
+    
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -212,7 +214,21 @@ function Navbar() {
             </div>
           </Typography>
           </Link>
-          <Link to='/login' className='text-decorator-none-navbar' onClick={zerarToken}>
+          <Link to='/cadastrarCategoria' className='text-decorator-none-navbar'>
+          <Typography className={classes.title2} variant="h6" noWrap>
+            <div className='margem-paginas'>
+            cadastrar Categoria
+            </div>
+          </Typography>
+          </Link>
+          <Link to='/listarCategoria' className='text-decorator-none-navbar'>
+          <Typography className={classes.title2} variant="h6" noWrap>
+            <div className='margem-paginas'>
+             Lista Categoria
+            </div>
+          </Typography>
+          </Link>
+          <Link to='/login' className='text-decorator-none-navbar'>
           <Typography className={classes.title2} variant="h6" noWrap>
             <div className='margem-paginas'>
             logout

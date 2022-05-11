@@ -14,7 +14,8 @@ function CadastraCategoria(){
     
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
-      );
+    );
+    
 
     const [categoria, setCategoria] = useState<Categoria>({
         id: 0,
@@ -23,7 +24,7 @@ function CadastraCategoria(){
     })
 
     useEffect(() => {
-        if(token == "") {
+        if(token == '') {
             toast.error('Você precisa estar logado', {
                 position: "top-right",
                 autoClose: 2000,
@@ -104,13 +105,14 @@ function CadastraCategoria(){
     }
 
     function back() {
-        navigate('/categoria')
+        navigate('/listarCategoria')
     }
   
     return (
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
                 <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro de categoria</Typography>
+                <TextField value={categoria.material} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="material" label="material" variant="outlined" name="material" margin="normal" fullWidth />
                 <TextField value={categoria.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
                 <Button type="submit" variant="contained" color="primary">
                     Finalizar

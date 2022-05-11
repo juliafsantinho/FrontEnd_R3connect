@@ -13,6 +13,7 @@ import { ToastContainer } from 'react-toastify';
 import CadastraCategoria from './componentes/categoria/cadastraCategoria/CadastraCategoria';
 import DeletaCategoria from './componentes/categoria/deletaCategoria/DeletaCategoria';
 import ListaCategoria from './componentes/categoria/listaCategoria/ListaCategoria';
+import 'react-toastify/dist/ReactToastify.css';  
 
 function App() {
   return (
@@ -29,7 +30,8 @@ function App() {
           <Route path='/sobre' element={<Sobre />} />
           <Route path='/cadastrar' element={<CadastroUsuario/>}/>
           <Route path='/cadastrarCategoria' element={<CadastraCategoria/>}/>
-          <Route path='/deletarCategoria' element={<DeletaCategoria/>}/>
+          <Route path='/cadastrarCategoria/:id' element={<CadastraCategoria/>}/>
+          <Route path='/deletarCategoria/:id' element={<DeletaCategoria/>}/>
           <Route path='/listarCategoria' element={<ListaCategoria/>}/>
 
 
