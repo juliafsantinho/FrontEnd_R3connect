@@ -2,12 +2,12 @@ import React,{useEffect} from "react";
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Box, Button , Grid , Typography,} from '@material-ui/core';
 import './Home.css';
-import TabProduto from "../../componentes/produto/tabProduto/tabProduto";
-import ModalProduto from "../../componentes/produto/modalProduto/modalProduto";
+import TabProduto from '../../componentes/produto/tabProduto/TabProduto';
 import { useNavigate } from "react-router-dom";
 import {useSelector} from 'react-redux';
 import {TokenState} from '../../store/tokens/tokensReducer'
 import {toast} from 'react-toastify'
+import ModalProduto from '../../componentes/produto/modalProduto/ModalProduto'
 
 let navigate=useNavigate()
 const token=useSelector<TokenState,TokenState["tokens"]>(
@@ -66,7 +66,7 @@ function Home(){
                     </Box>
                     <Box display="flex" justifyContent="center">
                         <Box marginRight={1}>
-                          <ModalProduto/>
+                        <ModalProduto/>
                         </Box>
                         <Button onClick={produtos} variant="outlined" className="botao">Ver Produtos</Button>
                     </Box>
