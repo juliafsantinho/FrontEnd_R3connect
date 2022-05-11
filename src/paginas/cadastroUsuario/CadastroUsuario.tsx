@@ -79,13 +79,8 @@ function CadastroUsuario() {
                         <TextField value={usuarioCadastro.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='usuario' label='usuário' name='usuario' placeholder='insira seu email' variant='outlined' required fullWidth  />
                         <TextField value={usuarioCadastro.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' type='password' id='senha' label='senha' name='senha' placeholder='insira uma senha de no mínimo oito digitos' variant='outlined' required fullWidth  />
                         <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} className='margin-bottom' id='senha' type='password' label='confirmar senha' name='senha' placeholder='insira a senha novamente' variant='outlined' required fullWidth  />
-<<<<<<< HEAD
-                        <TextField value={usuarioCadastro.cep} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='cep' label='cep' name='cep' variant='outlined'  placeholder='insira seu cep, cuidado com o espaço antes dos caractéres, tire-o' fullWidth required />
-                        {/* <TextField value={usuarioCadastro.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='foto' label='foto' name='foto' placeholder='insira um link de uma foto' variant='outlined' fullWidth  />  */}
-=======
                         <TextField value={usuarioCadastro.cep} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='cep' label='cep' name='cep' variant='outlined'  placeholder='insira seu cep com traço' fullWidth required />
                         <TextField value={usuarioCadastro.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='foto' label='foto' name='foto' placeholder='insira um link de uma foto' variant='outlined' fullWidth  />  
->>>>>>> 23415a843bef179fabc9bb6579fc58c8e3fcf2da
                         <TextField value={usuarioCadastro.contribuicao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='contribuicao' label='contribuição' name='contribuicao' variant='outlined' fullWidth placeholder='insira o quanto deseja contribuir para causas sociais e ambientais' />
 
                         <Box marginTop={2} textAlign='center'>

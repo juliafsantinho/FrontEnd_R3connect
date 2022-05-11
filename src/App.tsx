@@ -7,9 +7,18 @@ import Login from './paginas/login/Login';
 import Sobre from './paginas/sobreNos/Sobre';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
+import { Provider } from 'react-redux';
+import store from './store/store';
+import { ToastContainer } from 'react-toastify';
+import CadastraCategoria from './componentes/categoria/cadastraCategoria/CadastraCategoria';
+import DeletaCategoria from './componentes/categoria/deletaCategoria/DeletaCategoria';
+import ListaCategoria from './componentes/categoria/listaCategoria/ListaCategoria';
 
 function App() {
   return (
+
+    <Provider store = {store}>
+      <ToastContainer />
     <Router>
       <Navbar />
       <div style={{ minHeight: '100vh' }}>
@@ -19,13 +28,18 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/sobre' element={<Sobre />} />
           <Route path='/cadastrar' element={<CadastroUsuario/>}/>
+          <Route path='/cadastrarCategoria' element={<CadastraCategoria/>}/>
+          <Route path='/deletarCategoria' element={<DeletaCategoria/>}/>
+          <Route path='/listarCategoria' element={<ListaCategoria/>}/>
+
 
 
         </Routes>
       </div>
       <Footer />
 
-    </Router>
+      </Router>
+    </Provider>
 
   );
 }
