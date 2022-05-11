@@ -1,11 +1,18 @@
 .back{
-    background: linear-gradient(36deg, #35A538 8%, #1E6B27 80%)!important;
+    background: linear-gradient(36deg, #35A538 8%, #1E6B27 80%);
 }
 
 .margem-paginas{
-    padding: 13px;
+    padding: 20px 20px 20px 20px;
+}
+.margem-paginas:hover{
+    background-color:#39b43d;
 }
 
-.text-decorator-none{
+
+.text-decorator-none-navbar{
     text-decoration: none;
+    color: white;
+    
 }
+

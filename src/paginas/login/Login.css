@@ -18,6 +18,7 @@
  margin-bottom: 20px;
 }
 
-.text-decorator-none{
+.text-decorator-none-login {
     text-decoration: none;
+    color: #35A538;
 }

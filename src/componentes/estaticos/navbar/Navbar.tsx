@@ -1,5 +1,5 @@
 import React from 'react';
-
+import useLocalStorage from 'react-use-localstorage';
 import { alpha, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -28,6 +28,13 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: theme.spacing(2),
     },
     title: {
+      display: 'none',
+      [theme.breakpoints.up('sm')]: {
+        display: 'block',
+      },
+      marginRight: 20,
+    },
+    title2: {
       display: 'none',
       [theme.breakpoints.up('sm')]: {
         display: 'block',
@@ -86,12 +93,20 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 function Navbar() {
+
+
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  const [token, setToken] = useLocalStorage('token')
+   
+    async function zerarToken(){
+            await setToken('')
+    }
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -179,27 +194,28 @@ function Navbar() {
           >
           <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Typography className={classes.title} variant="h6" noWrap >
             R3connect
           </Typography>
-          <Link to='/home' className='text-decorator-none'>
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Link to='/home' className='text-decorator-none-navbar'>
+          <Typography className={classes.title2} variant="h6" noWrap>
             <div className='margem-paginas'>
             home
             </div>
           </Typography>
           </Link>
-          <Link to='/login' className='text-decorator-none'>
-          <Typography className={classes.title} variant="h6" noWrap>
+
+          <Link to='/sobre' className='text-decorator-none-navbar'>
+          <Typography className={classes.title2} variant="h6" noWrap>
             <div className='margem-paginas'>
-            login
+            sobre
             </div>
           </Typography>
           </Link>
-          <Link to='/sobre' className='text-decorator-none'>
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Link to='/login' className='text-decorator-none-navbar' onClick={zerarToken}>
+          <Typography className={classes.title2} variant="h6" noWrap>
             <div className='margem-paginas'>
-            sobre
+            logout
             </div>
           </Typography>
           </Link>
