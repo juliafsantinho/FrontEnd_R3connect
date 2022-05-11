@@ -54,6 +54,9 @@ function ListaCategoria() {
                 Categoria
               </Typography>
               <Typography variant="h5" component="h2">
+               {categoria.material}
+              </Typography>
+              <Typography variant="h6" component="h2">
                {categoria.descricao}
               </Typography>
             </CardContent>
