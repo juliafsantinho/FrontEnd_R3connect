@@ -3,12 +3,12 @@ import { Link, useNavigate} from "react-router-dom";
 import { login } from '../../services/Service';
 import UserLogin from "../../models/UserLogin";
 import React, { useState, useEffect, ChangeEvent } from "react";
-import { TokenState } from '../../store/tokens/tokensReducer'
+import { TokenState } from '../../store/tokens/tokensReducer';
 import './Login.css';
 import { useDispatch } from "react-redux";
-import { addToken } from "../../store/tokens/actions";
+import { addToken } from "../../store/tokens/action";
 import { toast } from "react-toastify";
-import { addUsuario } from "../../store/usuario/actions";
+import { addUsuario } from "../../store/tokens/action";
 
 
 
@@ -17,6 +17,7 @@ function Login() {
     let history = useNavigate();
     const dispatch = useDispatch();
     const [token, setToken] = useState('');
+    const [usuario, setUsuario] = useState('');
        
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
@@ -36,10 +37,11 @@ function Login() {
     }
 
     useEffect(() => {
-        if(userLogin.usuario !== "") {
-            dispatch(addUsuario(userLogin.usuario))
-        }
-    }, [userLogin.usuario])
+        
+        console.log(usuario)
+        dispatch(addUsuario(usuario))
+        
+    }, [usuario])
     
     useEffect(()=>{
         if(token !== ''){
@@ -50,6 +52,8 @@ function Login() {
 
     async function logar(e: ChangeEvent<HTMLFormElement>){
         e.preventDefault();
+        setUsuario(userLogin.usuario)
+
         try{
             await login('/usuarios/logar', userLogin, setToken)
             toast.success('Usuário logado com sucesso!! ', {

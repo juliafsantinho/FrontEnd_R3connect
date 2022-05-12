@@ -8,7 +8,7 @@ import Sobre from './paginas/sobreNos/Sobre';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
 import { Provider } from 'react-redux';
-import store from './store/store';
+import  store from './store/store'
 import { ToastContainer } from 'react-toastify';
 import CadastraCategoria from './componentes/categoria/cadastraCategoria/CadastraCategoria';
 import DeletaCategoria from './componentes/categoria/deletaCategoria/DeletaCategoria';
@@ -18,37 +18,42 @@ import CadastraProduto from './componentes/produto/cadastraProduto/CadastraProdu
 import DeletaProduto from './componentes/produto/deletaProduto/DeletaProduto';
 import ListaProduto from './componentes/produto/listaProduto/ListaProduto';
 
+
+
 function App() {
   return (
 
-    <Provider store = {store}>
-      <ToastContainer />
-    <Router>
-      <Navbar />
-      <div style={{ minHeight: '100vh' }}>
-        <Routes>
-        <Route path='/' element={<Login/>}/>
-          <Route path='/home' element={<Home />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/sobre' element={<Sobre />} />
-          <Route path='/cadastrar' element={<CadastroUsuario/>}/>
-          <Route path='/cadastrarCategoria' element={<CadastraCategoria/>}/>
-          <Route path='/cadastrarCategoria/:id' element={<CadastraCategoria/>}/>
-          <Route path='/deletarCategoria/:id' element={<DeletaCategoria/>}/>
-          <Route path='/listarCategoria' element={<ListaCategoria/>}/>
-          <Route path='/cadastrarProduto' element={<CadastraProduto/>}/>
-          <Route path='/cadastrarProduto/:id' element={<CadastraProduto/>}/>
-          <Route path='/deletarProduto/:id' element={<DeletaProduto/>}/>
-          <Route path='/listarProduto' element={<ListaProduto/>}/>
+    <Provider store = {store} >
+      
+          <ToastContainer />
+          <Router>
+            <Navbar />
+            <div style={{ minHeight: '100vh' }}>
+              <Routes>
+              <Route path='/' element={<Login/>}/>
+                <Route path='/home' element={<Home />} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/sobre' element={<Sobre />} />
+                <Route path='/cadastrar' element={<CadastroUsuario/>}/>
+                <Route path='/cadastrarCategoria' element={<CadastraCategoria/>}/>
+                <Route path='/cadastrarCategoria/:id' element={<CadastraCategoria/>}/>
+                <Route path='/deletarCategoria/:id' element={<DeletaCategoria/>}/>
+                <Route path='/listarCategoria' element={<ListaCategoria/>}/>
+                <Route path='/cadastrarProduto' element={<CadastraProduto/>}/>
+                <Route path='/cadastrarProduto/:id' element={<CadastraProduto/>}/>
+                <Route path='/deletarProduto/:id' element={<DeletaProduto/>}/>
+                <Route path='/listarProduto' element={<ListaProduto/>}/>
 
 
 
-        </Routes>
-      </div>
-      <Footer />
+              </Routes>
+            </div>
+            <Footer />
 
-      </Router>
-    </Provider>
+          </Router>
+      </Provider>
+      
+    
 
   );
 }
