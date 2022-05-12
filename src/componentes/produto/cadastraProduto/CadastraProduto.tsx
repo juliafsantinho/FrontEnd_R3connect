@@ -132,7 +132,7 @@ function CadastraProduto() {
     }
 
     function back() {
-        navigate('/produtos')
+        navigate('/listarProduto')
     }
 
     return (

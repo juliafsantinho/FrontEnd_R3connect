@@ -39,7 +39,7 @@ function ListaProduto() {
     }, [listaProduto.length])
 
     async function getProdutos() {
-        await busca(`/produtos`, setListaProduto, {
+        await busca(`/produtos/all`, setListaProduto, {
             headers: {
                 'Authorization': token
             }
@@ -73,7 +73,7 @@ function ListaProduto() {
                         <CardActions>
                             <Box mx={1} display='flex' justifyContent='center' mb={1.5}>
 
-                                <Link to={`/formularioProduto/${produto.id}`} className='text-decorator-none'>
+                                <Link to={`/cadastrarProduto/${produto.id}`} className='text-decorator-none'>
                                     <Button variant='contained' color='primary' size='small' className='marginEsquerda'>
                                         Atualizar
                                     </Button>
@@ -81,7 +81,7 @@ function ListaProduto() {
                             </Box>
 
                             <Box mx={1} display='flex' justifyContent='center' mb={1.5}>
-                                <Link to={`/deletaProduto/${produto.id}`}>
+                                <Link to={`/deletarProduto/${produto.id}`}>
                                     <Button variant='contained' color='secondary' size='small' className='marginEsquerda'>
                                         Deletar
                                     </Button>
