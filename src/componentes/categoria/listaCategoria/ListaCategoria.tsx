@@ -10,6 +10,11 @@ import { TokenState } from "../../../store/tokens/tokensReducer";
 function ListaCategoria() {
     const [categoria, setCategoria] = useState<Categoria[]>([])
     let navigate = useNavigate();
+
+    const user = useSelector<TokenState, TokenState["usuarios"]>(
+      (state) => state.usuarios
+    );
+
     const token = useSelector<TokenState, TokenState["tokens"]>(
       (state) => state.tokens
     );
@@ -42,11 +47,12 @@ function ListaCategoria() {
     useEffect(()=>{
       getCategoria()
     }, [categoria.length])
-  
-    return (
-      <>
-      {
-        categoria.map(categoria =>(
+
+    var listaCategoriaComponent
+
+    if(user == "admin.admin@email.com"){
+
+      listaCategoriaComponent =  categoria.map(categoria =>(
         <Box m={2} >
           <Card variant="outlined">
             <CardContent>
@@ -82,7 +88,39 @@ function ListaCategoria() {
           </Card>
         </Box>
         ))
-        }
+
+    }
+
+    if(user !== "admin.admin@email.com"){
+
+      listaCategoriaComponent =  categoria.map(categoria =>(
+        <Box m={2} >
+          <Card variant="outlined">
+            <CardContent>
+              <Typography color="textSecondary" gutterBottom>
+                Categoria
+              </Typography>
+              <Typography variant="h5" component="h2">
+               {categoria.material}
+              </Typography>
+              <Typography variant="h6" component="h2">
+               {categoria.descricao}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Box display="flex" justifyContent="center" mb={1.5} >
+  
+              </Box>
+            </CardActions>
+          </Card>
+        </Box>
+        ))
+
+    }
+  
+    return (
+      <>
+       {listaCategoriaComponent}
       </>
     );
   }

@@ -9,6 +9,11 @@ import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify'
 
 function ListaProduto() {
+
+    const user = useSelector<TokenState, TokenState["usuarios"]>(
+        (state) => state.usuarios
+    );
+
     let history = useNavigate();
     const [listaProduto, setListaProduto] = useState<Produto[]>([])
     const token = useSelector<TokenState, TokenState["tokens"]>(
@@ -45,54 +50,107 @@ function ListaProduto() {
             }
         })
     }
+
+
+    var listaProdutoComponent
+
+    if(user == "admin.admin@email.com"){
+
+        listaProdutoComponent = listaProduto.map(produto => (
+            <Box m={2}>
+                <Card variant='outlined'>
+                    <CardContent>
+                        <Typography color='textSecondary' gutterBottom>
+                            Postagens
+                        </Typography>
+                        <Typography variant='h5' component='h2'>
+                            {produto.nome}
+                        </Typography>
+                        <Typography variant='body2' component='p'>
+                            {produto.descricao}
+                        </Typography>
+                        <Typography variant='body2' component='p'>
+                            {produto.categoria?.material}
+                        </Typography>
+                        <Typography variant='body2' component='p'>
+                            {produto.foto}
+                        </Typography>
+                        <Typography variant='body2' component='p'>
+                            {produto.preco}
+                        </Typography>
+                    </CardContent>
+                    <CardActions>
+                        <Box mx={1} display='flex' justifyContent='center' mb={1.5}>
+
+                            <Link to={`/cadastrarProduto/${produto.id}`} className='text-decorator-none'>
+                                <Button variant='contained' color='primary' size='small' className='marginEsquerda'>
+                                    Atualizar
+                                </Button>
+                            </Link>
+                        </Box>
+
+                        <Box mx={1} display='flex' justifyContent='center' mb={1.5}>
+                            <Link to={`/deletarProduto/${produto.id}`} className='text-decorator-none'>
+                                <Button variant='contained' color='secondary' size='small' className='marginEsquerda'>
+                                    Deletar
+                                </Button>
+                            </Link>
+                        </Box>
+                    </CardActions>
+                </Card>
+            </Box>
+
+        ))
+        
+    }
+
+    if(user !== "admin.admin@email.com"){
+
+        listaProdutoComponent = listaProduto.map(produto => (
+            <Box m={2}>
+                <Card variant='outlined'>
+                    <CardContent>
+                        <Typography color='textSecondary' gutterBottom>
+                            Postagens
+                        </Typography>
+                        <Typography variant='h5' component='h2'>
+                            {produto.nome}
+                        </Typography>
+                        <Typography variant='body2' component='p'>
+                            {produto.descricao}
+                        </Typography>
+                        <Typography variant='body2' component='p'>
+                            {produto.categoria?.material}
+                        </Typography>
+                        <Typography variant='body2' component='p'>
+                            {produto.foto}
+                        </Typography>
+                        <Typography variant='body2' component='p'>
+                            {produto.preco}
+                        </Typography>
+                    </CardContent>
+                    <CardActions>
+                        <Box mx={1} display='flex' justifyContent='center' mb={1.5}>
+
+                            <Link to={'/carrinho'} className='text-decorator-none'>
+                                <Button variant='contained' color='primary' size='small' className='marginEsquerda'>
+                                    comprar
+                                </Button>
+                            </Link>
+                        </Box>
+
+                        
+                    </CardActions>
+                </Card>
+            </Box>
+
+        ))
+        
+    }
+
     return (
         <>
-            {listaProduto.map(produto => (
-                <Box m={2}>
-                    <Card variant='outlined'>
-                        <CardContent>
-                            <Typography color='textSecondary' gutterBottom>
-                                Postagens
-                            </Typography>
-                            <Typography variant='h5' component='h2'>
-                                {produto.nome}
-                            </Typography>
-                            <Typography variant='body2' component='p'>
-                                {produto.descricao}
-                            </Typography>
-                            <Typography variant='body2' component='p'>
-                                {produto.categoria?.material}
-                            </Typography>
-                            <Typography variant='body2' component='p'>
-                                {produto.foto}
-                            </Typography>
-                            <Typography variant='body2' component='p'>
-                                {produto.preco}
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Box mx={1} display='flex' justifyContent='center' mb={1.5}>
-
-                                <Link to={`/cadastrarProduto/${produto.id}`} className='text-decorator-none'>
-                                    <Button variant='contained' color='primary' size='small' className='marginEsquerda'>
-                                        Atualizar
-                                    </Button>
-                                </Link>
-                            </Box>
-
-                            <Box mx={1} display='flex' justifyContent='center' mb={1.5}>
-                                <Link to={`/deletarProduto/${produto.id}`} className='text-decorator-none'>
-                                    <Button variant='contained' color='secondary' size='small' className='marginEsquerda'>
-                                        Deletar
-                                    </Button>
-                                </Link>
-                            </Box>
-                        </CardActions>
-                    </Card>
-                </Box>
-
-            ))
-            }
+            {listaProdutoComponent}
         </>
     )
 }

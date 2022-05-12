@@ -297,6 +297,13 @@ function Navbar() {
               </div>
             </Typography>
           </Link>
+          <Link to='/listarProduto' className='text-decorator-none-navbar'>
+            <Typography className={classes.title2} variant="h6" noWrap>
+              <div className='margem-paginas'>
+                Lista produto
+              </div>
+            </Typography>
+          </Link>
           
           <div className={classes.search}>
             <div className={classes.searchIcon}>
