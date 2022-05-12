@@ -22,6 +22,7 @@ import './Navbar.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToken } from '../../../store/tokens/actions';
 import User from '../../../models/User';
+import { UserState } from '../../../store/usuario/usuarioReducer';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -255,9 +256,10 @@ function Navbar() {
   {renderMenu}
 </div>
 
-  const [user] = useState<User>();
+  const user = useSelector<UserState, UserState["usuario"]>((state) => state.usuario);
+  console.log(user)
 
-  if (token !== "" && user?.usuario == "admin.admin@email.com") {
+  if (token !== "" && user == "admin.admin@email.com") {
     navbarComponent = <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar className="back">

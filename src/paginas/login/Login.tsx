@@ -8,6 +8,7 @@ import './Login.css';
 import { useDispatch } from "react-redux";
 import { addToken } from "../../store/tokens/actions";
 import { toast } from "react-toastify";
+import { addUsuario } from "../../store/usuario/actions";
 
 
 
@@ -16,7 +17,6 @@ function Login() {
     let history = useNavigate();
     const dispatch = useDispatch();
     const [token, setToken] = useState('');
-
        
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
@@ -35,6 +35,11 @@ function Login() {
         })
     }
 
+    useEffect(() => {
+        if(userLogin.usuario !== "") {
+            dispatch(addUsuario(userLogin.usuario))
+        }
+    }, [userLogin.usuario])
     
     useEffect(()=>{
         if(token !== ''){
