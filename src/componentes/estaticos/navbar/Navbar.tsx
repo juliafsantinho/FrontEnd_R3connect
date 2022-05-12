@@ -15,12 +15,13 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 
 
 import './Navbar.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToken } from '../../../store/tokens/actions';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -96,6 +97,18 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 function Navbar() {
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
+
+    
+
+  function Logout() {
+      dispatch(addToken(''));
+      handleMenuClose();
+      navigate('/login')
+
+
+  }
 
 
   const classes = useStyles();
@@ -138,8 +151,9 @@ function Navbar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Perfil</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Minha conta</MenuItem>
+      <MenuItem onClick={Logout}>Deslogar</MenuItem>
     </Menu>
   );
 
@@ -155,20 +169,20 @@ function Navbar() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
+        <IconButton aria-label="0 notifications" color="inherit">
+          <Badge badgeContent={0} color="secondary">
             <MailIcon />
           </Badge>
         </IconButton>
-        <p>Messages</p>
+        <p>Mensagens</p>
       </MenuItem>
       <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
+        <IconButton aria-label="0 notifications" color="inherit">
+          <Badge badgeContent={0} color="secondary">
             <NotificationsIcon />
           </Badge>
         </IconButton>
-        <p>Notifications</p>
+        <p>Notificações</p>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
@@ -179,114 +193,181 @@ function Navbar() {
         >
           <AccountCircle />
         </IconButton>
-        <p>Profile</p>
+        <p>Perfil</p>
       </MenuItem>
     </Menu>
   );
 
-  return (
-    <div className={classes.grow}>
-      <AppBar position="static">
-        <Toolbar className="back">
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-          <MenuIcon />
-          </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap >
-            R3connect
-          </Typography>
-          <Link to='/home' className='text-decorator-none-navbar'>
-          <Typography className={classes.title2} variant="h6" noWrap>
-            <div className='margem-paginas'>
-            home
-            </div>
-          </Typography>
-          </Link>
+  var navbarComponent;
 
-          <Link to='/sobre' className='text-decorator-none-navbar'>
-          <Typography className={classes.title2} variant="h6" noWrap>
-            <div className='margem-paginas'>
-            sobre
-            </div>
-          </Typography>
-          </Link>
-          <Link to='/cadastrarCategoria' className='text-decorator-none-navbar'>
-          <Typography className={classes.title2} variant="h6" noWrap>
-            <div className='margem-paginas'>
-            cadastrar Categoria
-            </div>
-          </Typography>
-          </Link>
-          <Link to='/listarCategoria' className='text-decorator-none-navbar'>
-          <Typography className={classes.title2} variant="h6" noWrap>
-            <div className='margem-paginas'>
-             Lista Categoria
-            </div>
-          </Typography>
-          </Link>
-          <Link to='/login' className='text-decorator-none-navbar'>
-          <Typography className={classes.title2} variant="h6" noWrap>
-            <div className='margem-paginas'>
-            logout
-            </div>
-          </Typography>
-          </Link>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
+  if(token !== ""){
+    navbarComponent = <div className={classes.grow}>
+    <AppBar position="static">
+      <Toolbar className="back">
+        <IconButton
+          edge="start"
+          className={classes.menuButton}
+          color="inherit"
+          aria-label="open drawer"
+        >
+        <MenuIcon />
+        </IconButton>
+        <Typography className={classes.title} variant="h6" noWrap >
+          R3connect
+        </Typography>
+        <Link to='/home' className='text-decorator-none-navbar'>
+        <Typography className={classes.title2} variant="h6" noWrap>
+          <div className='margem-paginas'>
+          Home
           </div>
-          <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
+        </Typography>
+        </Link>
+        <Link to='/sobre' className='text-decorator-none-navbar'>
+        <Typography className={classes.title2} variant="h6" noWrap>
+          <div className='margem-paginas'>
+          Sobre
           </div>
-          <div className={classes.sectionMobile}>
-            <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
+        </Typography>
+        </Link>
+        <Link to='/cadastrarCategoria' className='text-decorator-none-navbar'>
+        <Typography className={classes.title2} variant="h6" noWrap>
+          <div className='margem-paginas'>
+          Cadastrar Categoria
           </div>
-        </Toolbar>
-      </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
-    </div>
+        </Typography>
+        </Link>
+        <Link to='/listarCategoria' className='text-decorator-none-navbar'>
+        <Typography className={classes.title2} variant="h6" noWrap>
+          <div className='margem-paginas'>
+           Lista Categoria
+          </div>
+        </Typography>
+        </Link>
+        <Link to='/login' className='text-decorator-none-navbar'>
+        <Typography className={classes.title2} variant="h6" noWrap>
+          <div className='margem-paginas' onClick={Logout}>
+          Logout
+          </div>
+        </Typography>
+        </Link>
+        <div className={classes.search}>
+          <div className={classes.searchIcon}>
+            <SearchIcon />
+          </div>
+          <InputBase
+            placeholder="Search…"
+            classes={{
+              root: classes.inputRoot,
+              input: classes.inputInput,
+            }}
+            inputProps={{ 'aria-label': 'search' }}
+          />
+        </div>
+        <div className={classes.grow} />
+        <div className={classes.sectionDesktop}>
+          <IconButton aria-label="show 0 new mails" color="inherit">
+            <Badge badgeContent={0} color="secondary">
+              <MailIcon />
+            </Badge>
+          </IconButton>
+          <IconButton aria-label="show 0 new notification" color="inherit">
+            <Badge badgeContent={0} color="secondary">
+              <NotificationsIcon />
+            </Badge>
+          </IconButton>
+          <IconButton
+            edge="end"
+            aria-label="account of current user"
+            aria-controls={menuId}
+            aria-haspopup="true"
+            onClick={handleProfileMenuOpen}
+            color="inherit"
+          >
+            <AccountCircle />
+          </IconButton>
+        </div>
+        <div className={classes.sectionMobile}>
+          <IconButton
+            aria-label="show more"
+            aria-controls={mobileMenuId}
+            aria-haspopup="true"
+            onClick={handleMobileMenuOpen}
+            color="inherit"
+          >
+            <MoreIcon />
+          </IconButton>
+        </div>
+      </Toolbar>
+    </AppBar>
+    {renderMobileMenu}
+    {renderMenu}
+  </div>
+  
+  } else{
+    navbarComponent = <div className={classes.grow}>
+    <AppBar position="static">
+      <Toolbar className="back">
+        <IconButton
+          edge="start"
+          className={classes.menuButton}
+          color="inherit"
+          aria-label="open drawer"
+        >
+        <MenuIcon />
+        </IconButton>
+        <Typography className={classes.title} variant="h6" noWrap >
+          R3connect
+        </Typography>
+        <Link to='/home' className='text-decorator-none-navbar'>
+        <Typography className={classes.title2} variant="h6" noWrap>
+          <div className='margem-paginas'>
+          Home
+          </div>
+        </Typography>
+        </Link>
+
+        <Link to='/sobre' className='text-decorator-none-navbar'>
+        <Typography className={classes.title2} variant="h6" noWrap>
+          <div className='margem-paginas'>
+          Sobre
+          </div>
+        </Typography>
+        </Link>
+        <div className={classes.search}>
+          <div className={classes.searchIcon}>
+            <SearchIcon />
+          </div>
+          <InputBase
+            placeholder="Search…"
+            classes={{
+              root: classes.inputRoot,
+              input: classes.inputInput,
+            }}
+            inputProps={{ 'aria-label': 'search' }}
+          />
+        </div>
+        <div className={classes.sectionMobile}>
+          <IconButton
+            aria-label="show more"
+            aria-controls={mobileMenuId}
+            aria-haspopup="true"
+            onClick={handleMobileMenuOpen}
+            color="inherit"
+          >
+            <MoreIcon />
+          </IconButton>
+        </div>
+      </Toolbar>
+    </AppBar>
+    {renderMobileMenu}
+    {renderMenu}
+  </div>
+
+  }
+  return (
+    <>
+    {navbarComponent}
+    </>
   );
 }
 

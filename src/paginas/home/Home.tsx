@@ -14,26 +14,7 @@ import ModalProduto from '../../componentes/produto/modalProduto/ModalProduto'
 function Home() {
 
   let navigate = useNavigate()
-  const token = useSelector<TokenState, TokenState["tokens"]>(
-    (state) => state.tokens
-  )
-
-  useEffect(() => {
-    if (token == '') {
-      toast.error('Usuário não logado!', {
-        position: 'top-right',
-        theme: 'colored',
-        autoClose: 1999,
-        pauseOnHover: false,
-        closeOnClick: true,
-        hideProgressBar: false,
-        progress: undefined
-
-      }
-      )
-      navigate("/login")
-    }
-  }, [token])
+  
   const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
@@ -52,7 +33,7 @@ function Home() {
   }));
 
   function produtos() {
-    navigate('/produtos')
+    navigate('/listarProduto')
   }
 
   const classes = useStyles();

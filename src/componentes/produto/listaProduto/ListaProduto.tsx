@@ -81,7 +81,7 @@ function ListaProduto() {
                             </Box>
 
                             <Box mx={1} display='flex' justifyContent='center' mb={1.5}>
-                                <Link to={`/deletarProduto/${produto.id}`}>
+                                <Link to={`/deletarProduto/${produto.id}`} className='text-decorator-none'>
                                     <Button variant='contained' color='secondary' size='small' className='marginEsquerda'>
                                         Deletar
                                     </Button>

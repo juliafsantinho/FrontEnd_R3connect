@@ -5,6 +5,7 @@ import { cadastroUsuario } from '../../services/Service';
 import './CadastroUsuario.css';
 import { Link, useNavigate } from 'react-router-dom'
 import UserLogin from '../../models/UserLogin';
+import { toast } from 'react-toastify';
 
 function CadastroUsuario() {
     let history = useNavigate();
@@ -49,15 +50,40 @@ function CadastroUsuario() {
                 console.log(usuarioCadastro)                                             
 
                 await cadastroUsuario(`/usuarios/cadastrar`, usuarioCadastro, setUsuarioResult);
-                alert('Usuário cadastrado tranquilamente!')
+                toast.success('Usuário cadastrado com sucesso! ✔', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                })
             } catch (error) {
                 console.log(`Error:${error}`)
-                alert("Usuário já existe!Ou quantidade de carácteres inseridos incorretamente!")
+                toast.error('Usuário já existe! Ou quantidade de carácteres inseridos incorretamente!.', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+                
             }
         }
         else {
-            alert('Dados do usuário inconsistentes!')
-
+            toast.error('Dados do usuário inconsistentes!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+           
         }
 
 
@@ -75,13 +101,13 @@ function CadastroUsuario() {
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='tituloC'>
                             Cadastre-se
                         </Typography>
-                        <TextField value={usuarioCadastro.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='nome' label='nome' name='nome' variant='outlined' placeholder='insira um nome de no mínimo cinco caractéres' required fullWidth />
-                        <TextField value={usuarioCadastro.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='usuario' label='usuário' name='usuario' placeholder='insira seu email' variant='outlined' required fullWidth  />
-                        <TextField value={usuarioCadastro.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' type='password' id='senha' label='senha' name='senha' placeholder='insira uma senha de no mínimo oito digitos' variant='outlined' required fullWidth  />
-                        <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} className='margin-bottom' id='senha' type='password' label='confirmar senha' name='senha' placeholder='insira a senha novamente' variant='outlined' required fullWidth  />
-                        <TextField value={usuarioCadastro.cep} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='cep' label='cep' name='cep' variant='outlined'  placeholder='insira seu cep com traço' fullWidth required />
-                        <TextField value={usuarioCadastro.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='foto' label='foto' name='foto' placeholder='insira um link de uma foto' variant='outlined' fullWidth  />  
-                        <TextField value={usuarioCadastro.contribuicao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='contribuicao' label='contribuição' name='contribuicao' variant='outlined' fullWidth placeholder='insira o quanto deseja contribuir para causas sociais e ambientais' />
+                        <TextField value={usuarioCadastro.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='nome' label='nome' name='nome' variant='outlined' placeholder='Insira um nome de no mínimo cinco caractéres' required fullWidth />
+                        <TextField value={usuarioCadastro.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='usuario' label='usuário' name='usuario' placeholder='Insira seu email' variant='outlined' required fullWidth  />
+                        <TextField value={usuarioCadastro.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' type='password' id='senha' label='senha' name='senha' placeholder='Insira uma senha de no mínimo oito digitos' variant='outlined' required fullWidth  />
+                        <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} className='margin-bottom' id='senha' type='password' label='confirmar senha' name='senha' placeholder='Insira a senha novamente' variant='outlined' required fullWidth  />
+                        <TextField value={usuarioCadastro.cep} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='cep' label='cep' name='cep' variant='outlined'  placeholder='Insira seu cep com traço' fullWidth required />
+                        <TextField value={usuarioCadastro.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='foto' label='foto' name='foto' placeholder='Insira um link de uma foto' variant='outlined' fullWidth  />  
+                        <TextField value={usuarioCadastro.contribuicao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='contribuicao' label='contribuição' name='contribuicao' variant='outlined' fullWidth placeholder='Insira o quanto deseja contribuir para causas sociais e ambientais' />
 
                         <Box marginTop={2} textAlign='center'>
                             <Button type='submit' variant='contained' color='primary' className='button'>Cadastrar</Button>
