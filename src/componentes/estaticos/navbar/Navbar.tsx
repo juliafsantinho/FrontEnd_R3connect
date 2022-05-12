@@ -19,10 +19,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import UserLogin from '../../../models/UserLogin';
 import './Navbar.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { addToken } from '../../../store/tokens/actions';
-import User from '../../../models/User';
-import { UserState } from '../../../store/usuario/usuarioReducer';
+import { Provider, useDispatch, useSelector } from 'react-redux';
+import { addToken } from '../../../store/tokens/action';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -98,6 +96,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 function Navbar() {
+  
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
@@ -110,7 +109,6 @@ function Navbar() {
 
   }
 
-
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -121,6 +119,13 @@ function Navbar() {
   const token = useSelector<TokenState, TokenState["tokens"]>(
     (state) => state.tokens
   )
+  const user = useSelector<TokenState, TokenState["usuarios"]>(
+    (state) => state.usuarios
+  );
+  
+  console.log({"email": user})
+  console.log({"token": token})
+
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -208,14 +213,9 @@ function Navbar() {
       >
         <MenuIcon />
       </IconButton>
-      <Typography className={classes.title} variant="h6" noWrap >
-        R3connect
-      </Typography>
       <Link to='/home' className='text-decorator-none-navbar'>
-        <Typography className={classes.title2} variant="h6" noWrap>
-          <div className='margem-paginas'>
-            Home
-          </div>
+        <Typography className={classes.title} variant="h6" noWrap >
+          R3connect
         </Typography>
       </Link>
 
@@ -256,8 +256,7 @@ function Navbar() {
   {renderMenu}
 </div>
 
-  const user = useSelector<UserState, UserState["usuario"]>((state) => state.usuario);
-  console.log(user)
+  
 
   if (token !== "" && user == "admin.admin@email.com") {
     navbarComponent = <div className={classes.grow}>
@@ -271,16 +270,12 @@ function Navbar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap >
-            R3connect
-          </Typography>
           <Link to='/home' className='text-decorator-none-navbar'>
-            <Typography className={classes.title2} variant="h6" noWrap>
-              <div className='margem-paginas'>
-                Home
-              </div>
+            <Typography className={classes.title} variant="h6" noWrap >
+              R3connect
             </Typography>
           </Link>
+          
           <Link to='/sobre' className='text-decorator-none-navbar'>
             <Typography className={classes.title2} variant="h6" noWrap>
               <div className='margem-paginas'>
@@ -302,13 +297,7 @@ function Navbar() {
               </div>
             </Typography>
           </Link>
-          <Link to='/login' className='text-decorator-none-navbar'>
-            <Typography className={classes.title2} variant="h6" noWrap>
-              <div className='margem-paginas' onClick={Logout}>
-                Logout
-              </div>
-            </Typography>
-          </Link>
+          
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -362,7 +351,7 @@ function Navbar() {
       {renderMenu}
     </div>
 
-  } else if (token !== ""){
+  } else if (token !== ""  && user !== "admin.admin@email.com"){
     navbarComponent = <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar className="back">
@@ -373,17 +362,14 @@ function Navbar() {
             aria-label="open drawer"
           >
             <MenuIcon />
+
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap >
-            R3connect
-          </Typography>
           <Link to='/home' className='text-decorator-none-navbar'>
-            <Typography className={classes.title2} variant="h6" noWrap>
-              <div className='margem-paginas'>
-                Home
-              </div>
+            <Typography className={classes.title} variant="h6" noWrap >
+              R3connect
             </Typography>
           </Link>
+          
           <Link to='/sobre' className='text-decorator-none-navbar'>
             <Typography className={classes.title2} variant="h6" noWrap>
               <div className='margem-paginas'>
@@ -398,13 +384,7 @@ function Navbar() {
               </div>
             </Typography>
           </Link>
-          <Link to='/login' className='text-decorator-none-navbar'>
-            <Typography className={classes.title2} variant="h6" noWrap>
-              <div className='margem-paginas' onClick={Logout}>
-                Logout
-              </div>
-            </Typography>
-          </Link>
+         
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -457,12 +437,15 @@ function Navbar() {
       {renderMobileMenu}
       {renderMenu}
     </div>
+    
   }
+  
   return (
-    <>
-      {navbarComponent}
-    </>
+      <>
+        {navbarComponent}   
+      </>
   );
+  
 }
 
 export default Navbar;
