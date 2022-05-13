@@ -65,11 +65,11 @@ const body=(
 
 return(
 <div>
- <Button
-variant='outlined'
-className='buttonModal'
-onClick={handleOpen}>
-Nova Categoria
+<Button 
+variant="outlined" 
+onClick={handleOpen}
+color="primary">
+ Nova Categoria
 </Button>
 
 <Modal

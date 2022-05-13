@@ -65,13 +65,16 @@ const body=(
 
 return(
 <div>
- <Button
-variant='outlined'
-className='buttonModal'
-onClick={handleOpen}>
-Novo Produto
+<Button 
+variant="outlined" 
+onClick={handleOpen}
+color="primary">
+ Novo Produto
 </Button>
 
+
+
+ 
 <Modal
 open={open}
 onClose={handleClose}
