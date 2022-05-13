@@ -48,6 +48,7 @@ function CadastraProduto() {
         descricao: '',
         foto: '',
         preco: 0,
+        quantidade:0,
         categoria: null,
     })
 
@@ -143,6 +144,7 @@ function CadastraProduto() {
                 <TextField value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="descricao" name="descricao"  variant="outlined" margin="normal" placeholder='Insira uma descrição/origem do produto' required fullWidth />
                 <TextField value={produto.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="foto" label="foto" name="foto" variant="outlined" margin="normal" placeholder='Insira a foto do produto (opcional)' fullWidth />
                 <TextField value={produto.preco} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="preco" label="preco" name="preco" variant="outlined" margin="normal" placeholder='Insira o preço do produto' required fullWidth />
+                <TextField value={produto.quantidade} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="quantidade" label="quantidade" name="quantidade" variant="outlined" margin="normal" placeholder='Escolha a quantidade que deseja comprar' required fullWidth />
 
                 <FormControl >
                     <InputLabel id="demo-simple-select-helper-label">Categoria </InputLabel>

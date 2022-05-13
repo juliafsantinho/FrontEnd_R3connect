@@ -149,9 +149,11 @@ function ListaProduto() {
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
-                <Button variant="contained" className="botaoCompra" fullWidth>
-                    comprar
+                <Link to={`/carrinho/${produto.id}`} className='text-decorator-none-login'>   
+                <Button variant="contained" className="botaoCompra" fullWidth >
+                    Comprar
                 </Button>
+                </Link>
 
                 </CardActions>
             </Card>
