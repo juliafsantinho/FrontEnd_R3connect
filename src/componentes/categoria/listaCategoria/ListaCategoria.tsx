@@ -71,15 +71,15 @@ function ListaCategoria() {
   
                 <Link to={`/cadastrarCategoria/${categoria.id}`} className="text-decorator-none">
                   <Box mx={1}>
-                    <Button variant="contained" className="marginLeft" size='small' color="primary" >
-                      atualizar
+                    <Button variant="contained" className="botaoCompra" size='small' color="primary">
+                      Atualizar
                     </Button>
                   </Box>
                 </Link>
                 <Link to={`/deletarCategoria/${categoria.id}`} className="text-decorator-none">
                   <Box mx={1}>
                     <Button variant="contained" size='small' color="secondary">
-                      deletar
+                      Deletar
                     </Button>
                   </Box>
                 </Link>
