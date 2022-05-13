@@ -7,8 +7,27 @@ import { busca } from '../../../services/Service';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify'
+import { makeStyles } from '@material-ui/core/styles';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardMedia from '@material-ui/core/CardMedia';
+import { width } from '@mui/system';
+
+const useStyles = makeStyles({
+    root: {
+        maxWidth: 345,
+        margin: 12,
+        width: 300,
+        
+    },
+    media: {
+        height: 200,
+        margin: 10
+    },
+});
+
 
 function ListaProduto() {
+    const classes = useStyles();
 
     const user = useSelector<TokenState, TokenState["usuarios"]>(
         (state) => state.usuarios
@@ -54,14 +73,14 @@ function ListaProduto() {
 
     var listaProdutoComponent
 
-    if(user == "admin.admin@email.com"){
+    if (user == "admin.admin@email.com") {
 
         listaProdutoComponent = listaProduto.map(produto => (
             <Box m={2}>
                 <Card variant='outlined'>
                     <CardContent>
                         <Typography color='textSecondary' gutterBottom>
-                            Postagens
+                            Produtos
                         </Typography>
                         <Typography variant='h5' component='h2'>
                             {produto.nome}
@@ -101,51 +120,45 @@ function ListaProduto() {
             </Box>
 
         ))
-        
+
     }
 
-    if(user !== "admin.admin@email.com"){
+    if (user !== "admin.admin@email.com") {
 
         listaProdutoComponent = listaProduto.map(produto => (
-            <Box m={2}>
-                <Card variant='outlined'>
+            <Card className={classes.root} >
+                <CardActionArea>
+                    <CardMedia
+                        className={classes.media}
+                        image={produto.foto}
+                        title="Contemplative Reptile"
+                    />
                     <CardContent>
-                        <Typography color='textSecondary' gutterBottom>
-                            Postagens
-                        </Typography>
-                        <Typography variant='h5' component='h2'>
+                        <Typography gutterBottom variant="h5" component="h2">
                             {produto.nome}
                         </Typography>
-                        <Typography variant='body2' component='p'>
+                        <Typography variant="body2" color="textSecondary" component="p" >  
                             {produto.descricao}
                         </Typography>
-                        <Typography variant='body2' component='p'>
+                        <Typography gutterBottom variant="body2" color="textSecondary" component="p">
                             {produto.categoria?.material}
                         </Typography>
-                        <Typography variant='body2' component='p'>
-                            {produto.foto}
-                        </Typography>
-                        <Typography variant='body2' component='p'>
-                            {produto.preco}
+                        <Typography  variant='h6' component='h3' >
+                            R$ {produto.preco}
                         </Typography>
                     </CardContent>
-                    <CardActions>
-                        <Box mx={1} display='flex' justifyContent='center' mb={1.5}>
+                </CardActionArea>
+                <CardActions>
+                <Button variant="contained" className="botaoCompra" fullWidth>
+                    comprar
+                </Button>
 
-                            <Link to={'/carrinho'} className='text-decorator-none'>
-                                <Button variant='contained' color='primary' size='small' className='marginEsquerda'>
-                                    comprar
-                                </Button>
-                            </Link>
-                        </Box>
+                </CardActions>
+            </Card>
 
-                        
-                    </CardActions>
-                </Card>
-            </Box>
 
         ))
-        
+
     }
 
     return (
