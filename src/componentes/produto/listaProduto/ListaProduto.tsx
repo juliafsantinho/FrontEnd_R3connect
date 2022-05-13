@@ -102,7 +102,7 @@ function ListaProduto() {
                         <Box mx={1} display='flex' justifyContent='center' mb={1.5}>
 
                             <Link to={`/cadastrarProduto/${produto.id}`} className='text-decorator-none'>
-                                <Button variant='contained' color='primary' size='small' className='marginEsquerda'>
+                                <Button variant='contained' color='primary' size='small' className='botaoCompra'>
                                     Atualizar
                                 </Button>
                             </Link>
@@ -149,9 +149,11 @@ function ListaProduto() {
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
-                <Button variant="contained" className="botaoCompra" fullWidth>
-                    comprar
+                <Link to={`/carrinho/${produto.id}`} className='text-decorator-none-login'>   
+                <Button variant="contained" className="botaoCompra" fullWidth >
+                    Comprar
                 </Button>
+                </Link>
 
                 </CardActions>
             </Card>

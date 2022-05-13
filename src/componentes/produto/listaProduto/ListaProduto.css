@@ -6,6 +6,7 @@
 .marginEsquerda{
 
     margin-left: 12px;
+    
 
 
 }
@@ -13,6 +14,8 @@
 .botaoCompra{
     background-color: #35A538 !important;
     color: white !important;
+    justify-content: center;
+    margin-left: 12px;
 }
 
 .botaoCompra:hover{

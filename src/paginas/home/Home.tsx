@@ -8,6 +8,8 @@ import { useSelector } from 'react-redux';
 import { TokenState } from '../../store/tokens/tokensReducer'
 import { toast } from 'react-toastify'
 import ModalProduto from '../../componentes/produto/modalProduto/ModalProduto'
+import CarouselComponent from "../../componentes/carrossel/CarouselComponent";
+import ModalCategoria from "../../componentes/categoria/modalCategoria/ModalCategoria";
 
 
 
@@ -53,10 +55,15 @@ function Home() {
           <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className="titulo">Encontre diversos produtos e soluções sustentáveis aqui.</Typography>
         </Box>
         <Box display="flex" justifyContent="center">
-          <Box marginRight={1} >
-            <ModalProduto />
+          
+           <Box marginRight={1}>
+           <ModalProduto />
+           </Box>
+           
+          <Box marginRight={1}>
+            <ModalCategoria />
           </Box>
-          <Button onClick={produtos} variant="outlined" className="botao">nova categoria</Button>
+
         </Box>
       </Grid>
       <Grid item xs={6} >
@@ -71,7 +78,11 @@ function Home() {
 
   if (user !== "admin.admin@email.com") {
 
-    homeComponent = <Grid container direction="row" justifyContent="center" alignItems="center" className="caixa">
+    homeComponent = 
+    <Grid container direction="row" justifyContent="center" alignItems="center" className="caixa">
+      {/* <Grid xs={12}>
+        <CarouselComponent />
+      </Grid> */}
       <Grid alignItems="center" item xs={6}>
         <Box paddingX={20} >
           <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className="titulo">Seja bem vindo(a)!</Typography>
