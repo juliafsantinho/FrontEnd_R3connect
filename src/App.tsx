@@ -17,12 +17,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import CadastraProduto from './componentes/produto/cadastraProduto/CadastraProduto';
 import DeletaProduto from './componentes/produto/deletaProduto/DeletaProduto';
 import ListaProduto from './componentes/produto/listaProduto/ListaProduto';
-<<<<<<< HEAD
 import { MenuLateral } from './componentes/estaticos/navbar/Navbar';
 import { DrawerProvider } from './componentes/contexts';
-=======
 import Cart from './componentes/cart/Cart';
->>>>>>> 4289a92d4a24c61af8ec845116c654709af1da4f
 
 
 
