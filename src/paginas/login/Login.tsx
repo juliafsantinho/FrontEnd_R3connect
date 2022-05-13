@@ -83,7 +83,7 @@ function Login() {
 
     return(
         <Grid container direction='row' justifyContent='center' alignItems='center' className="margem-grid">
-            <Grid alignItems='center' xs={6}>
+            <Grid alignItems='center' xs={6} >
                 <Box paddingX={20} alignSelf='center'>
                     <form  onSubmit={ logar }>
                        
@@ -119,7 +119,7 @@ function Login() {
                 </Box>
             </Grid>
             <Grid xs={6} justifyContent='center' alignItems='center'> 
-            <img src="https://i.imgur.com/bdVGRkp.png" className='imagem'/>
+            <img src="https://i.imgur.com/o4rqdfQ.png" className='imagem'/>
             </Grid>
         </Grid>
     )

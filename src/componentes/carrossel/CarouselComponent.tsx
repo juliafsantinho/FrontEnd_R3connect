@@ -7,7 +7,8 @@ function CarouselComponent () {
     var items = [
         {img: "https://i.imgur.com/7xhZQO7.jpg"},
         {img: "https://i.imgur.com/HaOlOBk.jpg"},
-        {img: "https://i.imgur.com/255203B.jpg"}
+        {img: "https://i.imgur.com/255203B.jpg"},
+        {img: "https://i.imgur.com/L0ZiCrS.jpg"},
     ]
 
     return (
