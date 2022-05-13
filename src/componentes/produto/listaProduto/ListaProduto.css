@@ -13,6 +13,7 @@
 .botaoCompra{
     background-color: #35A538 !important;
     color: white !important;
+    justify-content: center;
 }
 
 .botaoCompra:hover{
