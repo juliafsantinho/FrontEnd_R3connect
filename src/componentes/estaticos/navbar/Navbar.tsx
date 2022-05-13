@@ -116,6 +116,12 @@ function Navbar() {
 
   }
 
+  function Login(){
+    handleMenuClose();
+    navigate('/login')
+
+  }
+
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -162,8 +168,8 @@ function Navbar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
+      <MenuItem onClick={Login}>Login</MenuItem>
       <MenuItem onClick={handleMenuClose}>Perfil</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Minha conta</MenuItem>
       <MenuItem onClick={Logout}>Deslogar</MenuItem>
     </Menu>
   );
@@ -395,10 +401,10 @@ function Navbar() {
               </div>
             </Typography>
           </Link>
-          <Link to='/listarCategoria' className='text-decorator-none-navbar'>
+          <Link to='/listarProduto' className='text-decorator-none-navbar'>
             <Typography className={classes.title2} variant="h6" noWrap>
               <div className='margem-paginas'>
-                Lista Categoria
+                Produtos
               </div>
             </Typography>
           </Link>

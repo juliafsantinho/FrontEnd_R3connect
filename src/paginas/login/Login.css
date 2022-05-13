@@ -8,17 +8,25 @@
 
 .imagem{
     background-repeat: no-repeat; 
-    width: 290px; 
-    height: 275px;
     background-size: cover; 
     background-position: center;
+    justify-self: center !important;
 }
 
-.margem-grid{
-    margin: 100px;
+.container{
+    margin-top: 20vh;
 }
 
 .text-decorator-none-login {
     text-decoration: none;
     color: #35A538;
+}
+
+.campos-login{
+    background-color: #e2cec6 !important;
+    text-decoration-color: black;
+}
+
+.item{
+    padding-left: 45%;
 }
