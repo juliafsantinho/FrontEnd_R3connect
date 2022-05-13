@@ -74,9 +74,9 @@ function Home() {
 
     homeComponent = 
     <Grid container direction="row" justifyContent="center" alignItems="center" className="caixa">
-      {/* <Grid xs={12}>
+      <Grid xs={12}>
         <CarouselComponent />
-      </Grid> */}
+      </Grid>
       <Grid alignItems="center" item xs={6}>
         <Box paddingX={20} >
           <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className="titulo">Seja bem vindo(a)!</Typography>

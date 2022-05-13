@@ -1,0 +1,22 @@
+.img-carousel{
+    width: 90vw !important;
+    object-fit: cover;
+}
+
+.rec.rec-arrow {
+    border-radius: 50%;
+    border-color: white;
+    background-color: white;
+    color: #1E6B27;
+}
+
+.rec.rec-arrow:enabled{
+    background-color: white ;
+    color: #1E6B27;
+
+}
+
+.rec.rec-arrow:disabled {
+    visibility: hidden;
+}
+
