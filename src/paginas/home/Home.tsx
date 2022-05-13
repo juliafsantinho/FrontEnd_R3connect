@@ -8,8 +8,6 @@ import { useSelector } from 'react-redux';
 import { TokenState } from '../../store/tokens/tokensReducer'
 import { toast } from 'react-toastify'
 import ModalProduto from '../../componentes/produto/modalProduto/ModalProduto'
-import ModalCategoria from "../../componentes/categoria/modalCategoria/ModalCategoria";
-import TabCategoria from "../../componentes/categoria/tabCategoria/TabCategoria";
 
 
 
@@ -58,7 +56,7 @@ function Home() {
           <Box marginRight={1} >
             <ModalProduto />
           </Box>
-           <ModalCategoria />
+          <Button onClick={produtos} variant="outlined" className="botao">nova categoria</Button>
         </Box>
       </Grid>
       <Grid item xs={6} >
@@ -66,9 +64,6 @@ function Home() {
       </Grid>
       <Grid xs={12} className="produto">
         <TabProduto />
-      </Grid>
-      <Grid xs={12} className="produto">
-        <TabCategoria />
       </Grid>
     </Grid>
 
