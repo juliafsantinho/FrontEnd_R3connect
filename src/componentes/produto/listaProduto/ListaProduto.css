@@ -9,3 +9,12 @@
 
 
 }
+
+.botaoCompra{
+    background-color: #35A538 !important;
+    color: white !important;
+}
+
+.botaoCompra:hover{
+    background-color: #1E6B27 !important;
+}
