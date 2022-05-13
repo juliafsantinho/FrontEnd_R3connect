@@ -9,6 +9,7 @@ import { TokenState } from '../../store/tokens/tokensReducer'
 import { toast } from 'react-toastify'
 import ModalProduto from '../../componentes/produto/modalProduto/ModalProduto'
 import CarouselComponent from "../../componentes/carrossel/CarouselComponent";
+import ModalCategoria from "../../componentes/categoria/modalCategoria/ModalCategoria";
 
 
 
@@ -54,10 +55,15 @@ function Home() {
           <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className="titulo">Encontre diversos produtos e soluções sustentáveis aqui.</Typography>
         </Box>
         <Box display="flex" justifyContent="center">
-          <Box marginRight={1} >
-            <ModalProduto />
+          
+           <Box marginRight={1}>
+           <ModalProduto />
+           </Box>
+           
+          <Box marginRight={1}>
+            <ModalCategoria />
           </Box>
-          <Button onClick={produtos} variant="outlined" className="botao">nova categoria</Button>
+
         </Box>
       </Grid>
       <Grid item xs={6} >

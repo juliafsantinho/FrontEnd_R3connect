@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 import {Box,Button} from '@material-ui/core'
-import CadastraProduto from '../cadastraProduto/CadastraProduto';
 import {makeStyles, Theme, createStyles} from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import CloseIcon from '@material-ui/icons/Close'
-import './ModalProduto.css'
+import './ModalCategoria.css'
+import CadastraCategoria from "../cadastraCategoria/CadastraCategoria";
 
 
 
-function getModalStyle(){
+function getModal(){
 
 
 const top=50;
@@ -39,9 +39,9 @@ paper:{
 
 );
 
-function ModalProduto(){
+function ModalCategoria(){
 const classes=useStyles();
-const[modalStyle]=React.useState(getModalStyle)
+const[modalStyle]=React.useState(getModal)
 const[open,setOpen]=React.useState(false)
 const handleOpen =()=>{
  setOpen(true)
@@ -58,7 +58,7 @@ const body=(
  <Box display='flex' justifyContent='flex-end' className='cursor'>
         <CloseIcon onClick={handleClose}/>
      </Box>
-     <CadastraProduto/>
+     <CadastraCategoria/>
      </div>
 );
 
@@ -69,12 +69,9 @@ return(
 variant="outlined" 
 onClick={handleOpen}
 color="primary">
- Novo Produto
+ Nova Categoria
 </Button>
 
-
-
- 
 <Modal
 open={open}
 onClose={handleClose}
@@ -87,4 +84,4 @@ aria-labelledby="simple-modal-title"
 }
 
 
-export default ModalProduto;
+export default ModalCategoria;

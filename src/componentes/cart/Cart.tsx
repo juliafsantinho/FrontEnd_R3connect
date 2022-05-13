@@ -127,8 +127,8 @@ function Cart() {
                 <Box display="flex" flexDirection="column" justifyContent="center" mb={1.5}>
 
                     <Box className="cardProductButton">
-                        <Box mx={1}>
-                            <Button onClick={confirmSales} variant="contained" size='small' color="primary">
+                        <Box mx={1} >
+                            <Button onClick={confirmSales} variant="contained" size='small' color="primary" className='botaoCompra'>
                                 Confimar Compra
                             </Button>
                         </Box>
