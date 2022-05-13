@@ -105,9 +105,15 @@ function Navbar() {
     dispatch(addToken(''));
     handleMenuClose();
     navigate('/login')
-
-
   }
+
+   function Perfil(){
+      handleMenuClose();
+      navigate('/perfil')
+    }
+
+
+ 
 
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -155,7 +161,7 @@ function Navbar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Perfil</MenuItem>
+      <MenuItem onClick={Perfil}>Perfil</MenuItem>
       <MenuItem onClick={handleMenuClose}>Minha conta</MenuItem>
       <MenuItem onClick={Logout}>Deslogar</MenuItem>
     </Menu>

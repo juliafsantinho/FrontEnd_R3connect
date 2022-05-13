@@ -6,7 +6,7 @@ import React, { useState, useEffect, ChangeEvent } from "react";
 import { TokenState } from '../../store/tokens/tokensReducer';
 import './Login.css';
 import { useDispatch } from "react-redux";
-import { addToken } from "../../store/tokens/action";
+import { addId, addToken } from "../../store/tokens/action";
 import { toast } from "react-toastify";
 import { addUsuario } from "../../store/tokens/action";
 
@@ -28,6 +28,13 @@ function Login() {
         }
     )
 
+    const [respUserLogin, setRespUserLogin] = useState<UserLogin>({
+        id: 0,
+        usuario: '',
+        senha: '',
+        token: ''
+    })
+
     function updatedModel(e: ChangeEvent<HTMLInputElement>){
 
         setUserLogin({
@@ -39,7 +46,8 @@ function Login() {
     useEffect(() => {
         
         console.log(usuario)
-        dispatch(addUsuario(usuario))
+        dispatch(addUsuario(respUserLogin.usuario))
+        dispatch(addId(respUserLogin.id.toString()))
         
     }, [usuario])
     
@@ -84,7 +92,7 @@ function Login() {
     return(
         <Grid container direction='row' justifyContent='center' alignItems='center' className="margem-grid">
             <Grid alignItems='center' xs={6}>
-                <Box paddingX={20} alignSelf='center'>
+                <Box paddingX={20}>
                     <form  onSubmit={ logar }>
                        
                         <Typography variant="h3" gutterBottom color="textPrimary" component='h3' align="center" className="textos1">Entrar</Typography>
