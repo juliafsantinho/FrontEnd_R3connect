@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
 import { alpha, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -21,6 +22,11 @@ import UserLogin from '../../../models/UserLogin';
 import './Navbar.css';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import { addToken } from '../../../store/tokens/action';
+import { Home } from "@material-ui/icons";
+import {Avatar,  Divider,  Drawer,  List,  ListItemButton,  ListItemIcon,  ListItemText,  useTheme,} from "@mui/material";
+import { Box } from "@mui/system";
+import { useDrawerContext } from '../../contexts/DrawerContext';
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -99,6 +105,7 @@ function Navbar() {
   
   const dispatch = useDispatch();
   let navigate = useNavigate();
+  const { toggleDrawerOpen } = useDrawerContext();
 
 
   function Logout() {
@@ -206,11 +213,13 @@ function Navbar() {
   <AppBar position="static">
     <Toolbar className="back">
       <IconButton
+       onClick={toggleDrawerOpen}
         edge="start"
         className={classes.menuButton}
         color="inherit"
         aria-label="open drawer"
       >
+              
         <MenuIcon />
       </IconButton>
       <Link to='/home' className='text-decorator-none-navbar'>
@@ -263,6 +272,7 @@ function Navbar() {
       <AppBar position="static">
         <Toolbar className="back">
           <IconButton
+          onClick={toggleDrawerOpen}
             edge="start"
             className={classes.menuButton}
             color="inherit"
@@ -363,6 +373,7 @@ function Navbar() {
       <AppBar position="static">
         <Toolbar className="back">
           <IconButton
+          onClick={toggleDrawerOpen}
             edge="start"
             className={classes.menuButton}
             color="inherit"
@@ -454,5 +465,54 @@ function Navbar() {
   );
   
 }
+
+export const MenuLateral: React.FC = ({ children }) => {
+  const theme = useTheme();
+  const { isDrawerOpen, toggleDrawerOpen } = useDrawerContext();
+
+  return (
+    <>
+      <Drawer open={isDrawerOpen} variant='temporary' onClose={toggleDrawerOpen}>
+        <Box
+          width={theme.spacing(28)}
+          height="100%"
+          display="flex"
+          flexDirection={"column"}
+        >
+          <Box
+            width={"100%"}
+            height={theme.spacing(20)}
+            display="flex"
+            alignItems={"center"}
+            justifyContent={"center"}
+          >
+            <Avatar
+              sx={{ height: theme.spacing(12), width: theme.spacing(12) }}
+              alt="A"
+              src="/static/images/avatar/2.jpg"
+            />
+          </Box>
+
+          <Divider />
+
+          <Box flex={1}>
+            <List component="nav">
+              <ListItemButton>
+                <ListItemIcon>
+                   <Home></Home>
+                </ListItemIcon>
+                <ListItemText primary="Página inicial" />
+              </ListItemButton>
+            </List>
+          </Box>
+        </Box>
+      </Drawer>
+      <Box>
+        {children}
+      </Box>
+    </>
+  );
+  
+};
 
 export default Navbar;

@@ -17,18 +17,28 @@ import 'react-toastify/dist/ReactToastify.css';
 import CadastraProduto from './componentes/produto/cadastraProduto/CadastraProduto';
 import DeletaProduto from './componentes/produto/deletaProduto/DeletaProduto';
 import ListaProduto from './componentes/produto/listaProduto/ListaProduto';
+import { MenuLateral } from './componentes/estaticos/navbar/Navbar';
+import { DrawerProvider } from './componentes/contexts';
 
 
 
 function App() {
   return (
 
+
     <Provider store = {store} >
       
+     
           <ToastContainer />
+          <DrawerProvider> 
           <Router>
+
+          <MenuLateral>
             <Navbar />
             <div style={{ minHeight: '100vh' }}>
+
+            
+
               <Routes>
               <Route path='/' element={<Login/>}/>
                 <Route path='/home' element={<Home />} />
@@ -48,9 +58,11 @@ function App() {
 
               </Routes>
             </div>
+            </MenuLateral>
             <Footer />
 
           </Router>
+          </DrawerProvider>
       </Provider>
       
     
