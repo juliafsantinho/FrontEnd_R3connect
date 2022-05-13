@@ -8,14 +8,14 @@
 
 .imagem{
     background-repeat: no-repeat; 
-    width: 275px; 
+    width: 290px; 
     height: 275px;
     background-size: cover; 
     background-position: center;
 }
 
 .margem-grid{
- margin-bottom: 20px;
+    margin: 100px;
 }
 
 .text-decorator-none-login {
