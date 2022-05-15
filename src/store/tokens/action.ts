@@ -6,12 +6,13 @@ export const addToken = (token: string): Action => ({
     payload: token 
 })
 
-// Adicione o tipo de ação para pegar o ID
+
 export const addUsuario = (usuario: string): Action =>({
     type: "ADD_USUARIO",
     payload: usuario
 })
 
+// Adicione o tipo de ação para pegar o ID
 export const addId=(id:string):Action =>({
     type:"ADD_ID",
     payload: id

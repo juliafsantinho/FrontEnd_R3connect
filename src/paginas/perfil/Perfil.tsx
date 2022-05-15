@@ -38,7 +38,7 @@ useEffect(() => {
 }, [token])
 
 async function findById(id:string){
-    await buscaId(`usuarios/${id}`,setUser,{
+    await buscaId(`/usuarios/${id}`,setUser,{
         headers:{
             'Authorization':token
         }

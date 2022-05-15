@@ -5,11 +5,6 @@ export interface TokenState {
     tokens: string,
     usuarios: string,
     id:string
-
-
-   
-
-
     
 }
 

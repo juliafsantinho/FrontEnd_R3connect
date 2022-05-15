@@ -18,13 +18,19 @@ function Login() {
     const dispatch = useDispatch();
     const [token, setToken] = useState('');
     const [usuario, setUsuario] = useState('');
+   
+
+
+ 
        
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
             id: 0,
             usuario: '',
             senha: '',
-            token: ''
+            token: '',
+            nome:'',
+            foto:'' 
         }
     )
 
@@ -32,7 +38,23 @@ function Login() {
         id: 0,
         usuario: '',
         senha: '',
-        token: ''
+        token: '',
+        nome:'',
+        foto:''
+    })
+
+    useEffect(() => {
+        if (token !== "") {
+            dispatch(addToken(token))
+            history('/home')
+        }
+    }, [token])
+
+    useEffect(()=>{
+        console.log(usuario)
+        dispatch(addUsuario(usuario))
+        
+
     })
 
     function updatedModel(e: ChangeEvent<HTMLInputElement>){
@@ -42,28 +64,31 @@ function Login() {
             [e.target.name]: e.target.value
         })
     }
-
-    useEffect(() => {
         
-        console.log(usuario)
-        dispatch(addUsuario(respUserLogin.usuario))
-        dispatch(addId(respUserLogin.id.toString()))
-        
-    }, [usuario])
-    
     useEffect(()=>{
-        if(token !== ''){
-            dispatch(addToken(token));
-            history('/home')
+        if(respUserLogin.token !== ""){
+            console.log("Token: " + respUserLogin.token)
+            console.log("ID: " + respUserLogin.id)
+       
+
+         
+        dispatch(addToken(respUserLogin.token));
+        dispatch(addId(respUserLogin.id.toString()))
+        history('/home')
+
+  
+    
         }
-    }, [token])
+    },  [respUserLogin.token])
+
+    
 
     async function logar(e: ChangeEvent<HTMLFormElement>){
         e.preventDefault();
         setUsuario(userLogin.usuario)
 
         try{
-            await login('/usuarios/logar', userLogin, setToken)
+            await login(`/usuarios/logar`, userLogin, setRespUserLogin)
             toast.success('Usuário logado com sucesso!! ', {
                 position: "top-right",
                 autoClose: 5000,
