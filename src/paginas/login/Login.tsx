@@ -122,18 +122,19 @@ function Login() {
                 <Box paddingX={20} alignSelf='center'>
 
                     <form  onSubmit={ logar }>
+
                        
                         <Typography variant="h3" gutterBottom color="textPrimary" component='h3' align="center" className="textos1">Entrar</Typography>
                        
                         <TextField 
                          value = { userLogin.usuario }
                          onChange={ (e: ChangeEvent<HTMLInputElement>) => updatedModel(e) }
-                         id='usuario' label='usuario' variant="outlined" name="usuario" margin="normal" fullWidth />
+                         id='usuario' label='usuario' variant="outlined" name="usuario" margin="normal" fullWidth className="campos-login"/>
                        
                         <TextField 
                          value={userLogin.senha} 
                          onChange={(e: ChangeEvent<HTMLInputElement>)=> updatedModel(e)}
-                         id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password'fullWidth />
+                         id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password'fullWidth className="campos-login"/>
                         
                         <Box marginTop={2} textAlign='center'>
                             {/* <Link to='/home' className='text-decorator-none'> */}
@@ -154,8 +155,10 @@ function Login() {
                     </Box>
                 </Box>
             </Grid>
-            <Grid xs={6} justifyContent='center' alignItems='center'> 
-            <img src="https://i.imgur.com/o4rqdfQ.png" className='imagem'/>
+            <Grid item xs={4} justifyContent='center' alignItems='center'> 
+                <Box  alignSelf='center' justifySelf='center'className="item">
+                    <img src="https://i.imgur.com/o4rqdfQ.png" className='imagem'/>
+                </Box>
             </Grid>
         </Grid>
     )

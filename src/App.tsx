@@ -18,12 +18,15 @@ import CadastraProduto from './componentes/produto/cadastraProduto/CadastraProdu
 import DeletaProduto from './componentes/produto/deletaProduto/DeletaProduto';
 import ListaProduto from './componentes/produto/listaProduto/ListaProduto';
 
+
 import { MenuLateral } from './componentes/estaticos/navbar/Navbar';
 import { DrawerProvider } from './componentes/contexts';
 
 import Cart from './componentes/cart/Cart';
 
 import Perfil from './paginas/perfil/Perfil'
+
+
 
 
 
@@ -47,7 +50,7 @@ function App() {
             
 
               <Routes>
-              <Route path='/' element={<Login/>}/>
+                <Route path='/' element={<Home/>}/>
                 <Route path='/home' element={<Home />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/sobre' element={<Sobre />} />
