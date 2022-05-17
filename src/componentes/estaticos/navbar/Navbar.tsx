@@ -175,10 +175,8 @@ function Navbar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={Perfil}>Perfil</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Minha conta</MenuItem>
       <MenuItem onClick={Login}>Login</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Perfil</MenuItem>
+      <MenuItem onClick={Perfil}>Perfil</MenuItem>
       <MenuItem onClick={Logout}>Deslogar</MenuItem>
     </Menu>
   );
@@ -228,7 +226,7 @@ function Navbar() {
   var listarProduto;
   var navbarComponent;
   navbarComponent=
-  listarProduto=listaProduto.map(produto=>(
+  listarProduto=
   <div className={classes.grow}>
   <AppBar position="static">
     <Toolbar className="back">
@@ -291,12 +289,12 @@ function Navbar() {
   {renderMobileMenu}
   {renderMenu}
 </div>
-))
  
 
   if (token !== "" && user == "admin.admin@email.com") {
     
-    navbarComponent =listarProduto=listaProduto.map(produto=>( <div className={classes.grow}>
+    navbarComponent =
+    <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar className="back">
           <IconButton
@@ -342,24 +340,26 @@ function Navbar() {
               </div>
             </Typography>
           </Link>
-          
+          {listarProduto=listaProduto.map(produto=>(
           <div className={classes.search}>
             <div className={classes.searchIcon}>
+           
             <Link to={`/listarProduto/nome/${produto.nome}`}>
           <Button>
               <SearchIcon />
           </Button>
+
             </Link>
             </div>
-            <InputBase value={produto.nome}
-              placeholder="Search…"
+             <InputBase value={produto.nome}
+              placeholder="Search…" 
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
               inputProps={{ 'aria-label': 'search' }}
             />
-          </div>
+          </div>))}
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 0 new mails" color="inherit">
@@ -399,10 +399,10 @@ function Navbar() {
       {renderMobileMenu}
       {renderMenu}
     </div>
-    ))
+
 
   } else if (token !==""  && user !== "admin.admin@email.com"){
-    navbarComponent = listarProduto=listaProduto.map(produto=>(
+    navbarComponent = 
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar className="back">
@@ -436,16 +436,17 @@ function Navbar() {
               </div>
             </Typography>
           </Link>
-         
+          {listarProduto=listaProduto.map(produto=>(
           <div className={classes.search}>
             <div className={classes.searchIcon}>
+           
             <Link to={`/listarProduto/nome/${produto.nome}`}>
           <Button>
               <SearchIcon />
           </Button>
+
             </Link>
             </div>
-            
              <InputBase value={produto.nome}
               placeholder="Search…" 
               classes={{
@@ -454,7 +455,7 @@ function Navbar() {
               }}
               inputProps={{ 'aria-label': 'search' }}
             />
-          </div>
+          </div>))}
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 0 new mails" color="inherit">
@@ -494,7 +495,7 @@ function Navbar() {
       {renderMobileMenu}
       {renderMenu}
     </div>
-    ))
+
   }
   
   

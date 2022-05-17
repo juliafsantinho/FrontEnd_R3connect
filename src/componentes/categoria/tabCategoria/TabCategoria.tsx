@@ -46,7 +46,7 @@ function TabCategoria() {
         </TabContext>
     }
 
-    if(user !== "admin.admin@email.com"){
+    if(user == ""){
 
         tabCategoriaComponent = <TabContext value={value}>
             <AppBar position='static' >

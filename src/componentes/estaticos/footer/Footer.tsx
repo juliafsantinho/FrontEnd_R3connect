@@ -22,7 +22,7 @@ function Footer() {
                     <Typography variant="h6" align="center" className='textos'>Siga-nos nas redes sociais </Typography>
                 </Box>
                 <Box display="flex" alignItems="center" justifyContent="center">
-                    <a href="https://www.github.com/santosnicolle" target="_blank">
+                    <a href="https://github.com/R3connect-E-commerce" target="_blank">
                     <GitHubIcon className='redes' />
                     </a>
                 </Box>

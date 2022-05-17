@@ -16,6 +16,7 @@
     color: white !important;
     justify-content: center;
     margin-left: 12px;
+    border-radius: 50px !important;
 }
 
 .botaoCompra:hover{

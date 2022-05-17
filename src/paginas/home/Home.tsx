@@ -96,7 +96,7 @@ function Home() {
         <Grid item xs={6} >
           <img src="https://i.imgur.com/RgQcsNy.png" alt="logo" />
         </Grid> */}
-        <Grid xs={12} className="produto">
+        <Grid xs={10} className="produto">
           <TabProduto />
         </Grid>
       </Grid>
