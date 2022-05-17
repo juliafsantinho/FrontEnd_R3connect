@@ -155,9 +155,9 @@ function Login() {
                     </Box>
                 </Box>
             </Grid>
-            <Grid item xs={4} justifyContent='center' alignItems='center'> 
-                <Box  alignSelf='center' justifySelf='center'className="item">
-                    <img src="https://i.imgur.com/o4rqdfQ.png" className='imagem'/>
+            <Grid item xs={6} justifyContent='center' alignItems='center'> 
+                <Box  alignSelf='center' justifySelf='center'className="imagem" marginTop={6}>
+                    
                 </Box>
             </Grid>
         </Grid>

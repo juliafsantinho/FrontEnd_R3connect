@@ -91,9 +91,10 @@ function CadastroUsuario() {
     }
     return (
         <Grid container direction='row' justifyContent='center' alignItems='center'>
-            <Grid item xs={6} >
-            <img src="https://i.imgur.com/bdVGRkp.png" className='imgC'/>
-
+           <Grid item xs={6} justifyContent='center' alignItems='center'> 
+                <Box  alignSelf='center' justifySelf='center'className="imagem" marginTop={6}>
+                    
+                </Box>
             </Grid>
             <Grid item xs={6} alignItems='center'>
                 <Box paddingX={9}>
@@ -109,7 +110,7 @@ function CadastroUsuario() {
                         <TextField value={usuarioCadastro.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='foto' label='foto' name='foto' placeholder='Insira um link de uma foto' variant='outlined' fullWidth  />  
                         <TextField value={usuarioCadastro.contribuicao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='contribuicao' label='contribuição' name='contribuicao' variant='outlined' fullWidth placeholder='Insira o quanto deseja contribuir para causas sociais e ambientais' />
 
-                        <Box marginTop={2} textAlign='center'>
+                        <Box marginTop={1} textAlign='center'>
                             <Button type='submit' variant='contained' color='primary' className='button'>Cadastrar</Button>
                             <Link to='/login' className='text-decorator-none'>
                                 <Button variant='contained' color='secondary' className='button'>Cancelar</Button>
