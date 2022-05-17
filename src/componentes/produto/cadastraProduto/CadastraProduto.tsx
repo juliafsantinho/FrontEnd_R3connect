@@ -2,7 +2,7 @@ import React, { ChangeEvent, useEffect, useState } from 'react'
 import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText } from "@material-ui/core"
 import './CadastraProduto.css';
 import { useNavigate, useParams } from 'react-router-dom';
-import { busca, buscaId, post, put } from '../../../services/Service';
+import { busca, buscaC, buscaId, post, put } from '../../../services/Service';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
@@ -67,7 +67,7 @@ function CadastraProduto() {
     }, [id])
 
     async function getCategorias() {
-        await busca("/categoria", setCategorias, {
+        await buscaC(`/categoria`, setCategorias, {
             headers: {
                 'Authorization': token
             }

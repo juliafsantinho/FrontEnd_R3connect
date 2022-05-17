@@ -65,6 +65,7 @@ function App() {
                 <Route path='/listarProduto' element={<ListaProduto/>}/>
                 <Route path='/carrinho/:id' element={<Cart/>}/>
                 <Route path='/perfil' element={<Perfil/>}/>
+                <Route path='/listarProduto/nome/:nome' element={<ListaProduto/>}/>
 
 
 

@@ -22,11 +22,12 @@ import UserLogin from '../../../models/UserLogin';
 import './Navbar.css';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import { addToken } from '../../../store/tokens/action';
+import { Button } from '@material-ui/core';
 import { Home } from "@material-ui/icons";
 import {Avatar,  Divider,  Drawer,  List,  ListItemButton,  ListItemIcon,  ListItemText,  useTheme,} from "@mui/material";
 import { Box } from "@mui/system";
 import { useDrawerContext } from '../../contexts/DrawerContext';
-
+import Produto from '../../../models/Produto';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -193,7 +194,7 @@ function Navbar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      {/* <MenuItem> 
         <IconButton aria-label="0 notifications" color="inherit">
           <Badge badgeContent={0} color="secondary">
             <MailIcon />
@@ -209,6 +210,7 @@ function Navbar() {
         </IconButton>
         <p>Notificações</p>
       </MenuItem>
+      */}
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -222,8 +224,12 @@ function Navbar() {
       </MenuItem>
     </Menu>
   );
-
-  var navbarComponent = <div className={classes.grow}>
+  const [listaProduto,setListaProduto]=useState<Produto[]>([])
+  var listarProduto;
+  var navbarComponent;
+  navbarComponent=
+  listarProduto=listaProduto.map(produto=>(
+  <div className={classes.grow}>
   <AppBar position="static">
     <Toolbar className="back">
       <IconButton
@@ -249,11 +255,16 @@ function Navbar() {
           </div>
         </Typography>
       </Link>
-      <div className={classes.search}>
+       {/*<div className={classes.search}>
         <div className={classes.searchIcon}>
+         <Link to={`/listarProduto/nome/${produto.nome}`}> 
+          <Button>
           <SearchIcon />
+          </Button>
+          </Link>
         </div>
-        <InputBase
+      
+        <InputBase value={produto.nome}
           placeholder="Search…"
           classes={{
             root: classes.inputRoot,
@@ -261,7 +272,9 @@ function Navbar() {
           }}
           inputProps={{ 'aria-label': 'search' }}
         />
+       
       </div>
+       */}
       <div className={classes.sectionMobile}>
         <IconButton
           aria-label="show more"
@@ -278,11 +291,12 @@ function Navbar() {
   {renderMobileMenu}
   {renderMenu}
 </div>
-
-  
+))
+ 
 
   if (token !== "" && user == "admin.admin@email.com") {
-    navbarComponent = <div className={classes.grow}>
+    
+    navbarComponent =listarProduto=listaProduto.map(produto=>( <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar className="back">
           <IconButton
@@ -331,9 +345,13 @@ function Navbar() {
           
           <div className={classes.search}>
             <div className={classes.searchIcon}>
+            <Link to={`/listarProduto/nome/${produto.nome}`}>
+          <Button>
               <SearchIcon />
+          </Button>
+            </Link>
             </div>
-            <InputBase
+            <InputBase value={produto.nome}
               placeholder="Search…"
               classes={{
                 root: classes.inputRoot,
@@ -381,9 +399,11 @@ function Navbar() {
       {renderMobileMenu}
       {renderMenu}
     </div>
+    ))
 
-  } else if (token !== ""  && user !== "admin.admin@email.com"){
-    navbarComponent = <div className={classes.grow}>
+  } else if (token !==""  && user !== "admin.admin@email.com"){
+    navbarComponent = listarProduto=listaProduto.map(produto=>(
+    <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar className="back">
           <IconButton
@@ -419,10 +439,15 @@ function Navbar() {
          
           <div className={classes.search}>
             <div className={classes.searchIcon}>
+            <Link to={`/listarProduto/nome/${produto.nome}`}>
+          <Button>
               <SearchIcon />
+          </Button>
+            </Link>
             </div>
-            <InputBase
-              placeholder="Search…"
+            
+             <InputBase value={produto.nome}
+              placeholder="Search…" 
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
@@ -469,8 +494,9 @@ function Navbar() {
       {renderMobileMenu}
       {renderMenu}
     </div>
-    
+    ))
   }
+  
   
   return (
       <>

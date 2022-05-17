@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Categoria from "../../../models/Categoria";
-import { busca } from "../../../services/Service";
+import { busca, buscaC } from "../../../services/Service";
 import { TokenState } from "../../../store/tokens/tokensReducer";
 
 function ListaCategoria() {
@@ -36,7 +36,7 @@ function ListaCategoria() {
   
   
     async function getCategoria(){
-      await busca("/categoria", setCategoria, {
+      await buscaC("/categoria", setCategoria, {
         headers: {
           'Authorization': token
         }

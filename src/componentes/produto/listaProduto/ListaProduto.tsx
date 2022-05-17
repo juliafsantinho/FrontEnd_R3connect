@@ -35,11 +35,13 @@ function ListaProduto() {
 
     let history = useNavigate();
     const [listaProduto, setListaProduto] = useState<Produto[]>([])
-    const token = useSelector<TokenState, TokenState["tokens"]>(
+     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
     )
-    useEffect(() => {
-        if (token === '') {
+    //useEffect(() => {
+       function comprar(){
+
+  useEffect(()=>{    if (token === '') {
             toast.error('Usuário não logado!', {
                 position: 'top-right',
                 theme: 'colored',
@@ -55,7 +57,9 @@ function ListaProduto() {
             )
             history('/login')
         }
-    }, [token])
+
+         },[token])
+        }
 
     useEffect(() => {
         getProdutos()
@@ -63,11 +67,12 @@ function ListaProduto() {
     }, [listaProduto.length])
 
     async function getProdutos() {
-        await busca(`/produtos/all`, setListaProduto, {
-            headers: {
-                'Authorization': token
-            }
-        })
+        await busca(`/produtos/all`, setListaProduto//, {
+           // headers: {
+            //    'Authorization': token
+          //  }
+       // }
+        )
     }
 
 
@@ -150,7 +155,7 @@ function ListaProduto() {
                 </CardActionArea>
                 <CardActions>
                 <Link to={`/carrinho/${produto.id}`} className='text-decorator-none-login'>   
-                <Button variant="contained" className="botaoCompra" fullWidth >
+                <Button onClick={comprar} variant="contained" className="botaoCompra" fullWidth >
                     Comprar
                 </Button>
                 </Link>
