@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import Categoria from "../../../models/Categoria";
 import { buscaId, post, put } from "../../../services/Service";
 import { TokenState } from "../../../store/tokens/tokensReducer";
+import './CadastraCategoria.css';
 
 function CadastraCategoria(){
 
@@ -111,10 +112,10 @@ function CadastraCategoria(){
     return (
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro de categoria</Typography>
+                <Typography variant="h3" color="textSecondary" component="h1" align="center" className="tituloCadCat">Formulário de cadastro de categoria</Typography>
                 <TextField className='camposCat' value={categoria.material} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="material" label="material" variant="outlined" name="material" margin="normal" placeholder='Insira o material' required fullWidth />
                 <TextField className='camposCat' value={categoria.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" placeholder='Insira a origem do material' required fullWidth />
-                <Button type="submit" variant="contained" color="primary" className='botaoCompra'>
+                <Button type="submit" variant="contained" color="primary" className='botaoFinCat'>
                     Finalizar
                 </Button>
             </form>

@@ -1,4 +1,4 @@
-.botaoCompra{
+.botaoFinCat{
     background-color: #35A538 !important;
     color: white !important;
     justify-content: center;
@@ -8,4 +8,13 @@
 .camposCat{
     background-color: #e2cec6 !important;
     text-decoration-color: black;
+    margin-bottom: 20px!important;
+}
+
+.tituloCadCat{
+    color: #1E6B27 !important
+}
+
+.topo{
+    margin-top: 50px;
 }
