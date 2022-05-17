@@ -5,15 +5,17 @@ import './CarouselComponent.css';
 
 function CarouselComponent () {
     var items = [
-        {img: "https://i.imgur.com/7xhZQO7.jpg"},
-        {img: "https://i.imgur.com/HaOlOBk.jpg"},
-        {img: "https://i.imgur.com/255203B.jpg"},
+        {img: "https://i.imgur.com/0MaUWmS.png"},
+        {img: "https://i.imgur.com/wWTKSYU.png"},
+        {img: "https://i.imgur.com/f1al4Di.png"},
+        {img: "https://i.imgur.com/q7ZwNOZ.png"},
+        {img: "https://i.imgur.com/C7wsCg3.png"},
     ]
 
     return (
             <div className="rec.rec-arrow, rec-carousel-item">
-                <Carousel enableAutoPlay autoPlaySpeed={4000} itemsToShow={1} isRTL={false}
-                    pagination={false} >
+                <Carousel enableAutoPlay autoPlaySpeed={5000} itemsToShow={1} isRTL={false}
+                    pagination={true} showArrows={false}>
                     
                     {
                         
@@ -22,8 +24,9 @@ function CarouselComponent () {
                                 <img src={item.img} alt="Item" className="img-carousel" />
                             </>
                         ))
+                        
                     }
-                
+
                 </Carousel>
             </div>
             

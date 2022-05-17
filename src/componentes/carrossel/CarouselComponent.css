@@ -1,11 +1,13 @@
 .img-carousel{
-    width: 90vw !important;
+    background-color: transparent;
+    padding-top: 10px;
+    width: 100vw !important;
     object-fit: cover;
 }
 
 .rec.rec-arrow {
     border-radius: 50%;
-    border-color: white;
+    border-color: transparent !important;
     background-color: white;
     color: #1E6B27;
 }
@@ -24,4 +26,7 @@
     outline: none;
     background-color: transparent;
 }
+
+
+
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
+import { Box, Card, CardActions, CardContent, Button, Typography, Grid } from '@material-ui/core';
 import './ListaProduto.css';
 import Produto from '../../../models/Produto'
 import { busca } from '../../../services/Service';
@@ -17,7 +17,7 @@ const useStyles = makeStyles({
         maxWidth: 345,
         margin: 12,
         width: 300,
-        
+
     },
     media: {
         height: 200,
@@ -76,48 +76,52 @@ function ListaProduto() {
     if (user == "admin.admin@email.com") {
 
         listaProdutoComponent = listaProduto.map(produto => (
-            <Box m={2}>
-                <Card variant='outlined'>
-                    <CardContent>
-                        <Typography color='textSecondary' gutterBottom>
-                            Produtos
-                        </Typography>
-                        <Typography variant='h5' component='h2'>
-                            {produto.nome}
-                        </Typography>
-                        <Typography variant='body2' component='p'>
-                            {produto.descricao}
-                        </Typography>
-                        <Typography variant='body2' component='p'>
-                            {produto.categoria?.material}
-                        </Typography>
-                        <Typography variant='body2' component='p'>
-                            {produto.foto}
-                        </Typography>
-                        <Typography variant='body2' component='p'>
-                            {produto.preco}
-                        </Typography>
-                    </CardContent>
-                    <CardActions>
-                        <Box mx={1} display='flex' justifyContent='center' mb={1.5}>
+            <Grid container direction='row' alignItems='center' justifyContent='center' alignContent='center'>
+                <Grid item xs={3}>
+                    <Box padding='10px'>
+                        <Card variant='outlined'>
+                            <CardContent>
+                                <Typography color='textSecondary' gutterBottom>
+                                    Produtos
+                                </Typography>
+                                <Typography variant='h5' component='h2'>
+                                    {produto.nome}
+                                </Typography>
+                                <Typography variant='body2' component='p'>
+                                    {produto.descricao}
+                                </Typography>
+                                <Typography variant='body2' component='p'>
+                                    {produto.categoria?.material}
+                                </Typography>
+                                <Typography variant='body2' component='p'>
+                                    {produto.foto}
+                                </Typography>
+                                <Typography variant='body2' component='p'>
+                                    {produto.preco}
+                                </Typography>
+                            </CardContent>
+                            <CardActions>
+                                <Box mx={1} display='flex' justifyContent='center' mb={1.5}>
 
-                            <Link to={`/cadastrarProduto/${produto.id}`} className='text-decorator-none'>
-                                <Button variant='contained' color='primary' size='small' className='botaoCompra'>
-                                    Atualizar
-                                </Button>
-                            </Link>
-                        </Box>
+                                    <Link to={`/cadastrarProduto/${produto.id}`} className='text-decorator-none'>
+                                        <Button variant='contained' color='primary' size='small' className='botaoCompra'>
+                                            Atualizar
+                                        </Button>
+                                    </Link>
+                                </Box>
 
-                        <Box mx={1} display='flex' justifyContent='center' mb={1.5}>
-                            <Link to={`/deletarProduto/${produto.id}`} className='text-decorator-none'>
-                                <Button variant='contained' color='secondary' size='small' className='marginEsquerda'>
-                                    Deletar
-                                </Button>
-                            </Link>
-                        </Box>
-                    </CardActions>
-                </Card>
-            </Box>
+                                <Box mx={1} display='flex' justifyContent='center' mb={1.5}>
+                                    <Link to={`/deletarProduto/${produto.id}`} className='text-decorator-none'>
+                                        <Button variant='contained' color='secondary' size='small' className='marginEsquerda, btnDeletar'>
+                                            Deletar
+                                        </Button>
+                                    </Link>
+                                </Box>
+                            </CardActions>
+                        </Card>
+                    </Box>
+                </Grid>
+            </Grid>
 
         ))
 
@@ -126,41 +130,43 @@ function ListaProduto() {
     if (user !== "admin.admin@email.com") {
 
         listaProdutoComponent = listaProduto.map(produto => (
-            <Card className={classes.root} >
-                <CardActionArea>
-                    <CardMedia
-                        className={classes.media}
-                        image={produto.foto}
-                        title="Contemplative Reptile"
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                            {produto.nome}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p" >  
-                            {produto.descricao}
-                        </Typography>
-                        <Typography gutterBottom variant="body2" color="textSecondary" component="p">
-                            {produto.categoria?.material}
-                        </Typography>
-                        <Typography  variant='h6' component='h3' >
-                            R$ {produto.preco}
-                        </Typography>
-                    </CardContent>
-                </CardActionArea>
-                <CardActions>
-                <Link to={`/carrinho/${produto.id}`} className='text-decorator-none-login'>   
-                <Button variant="contained" className="botaoCompra" fullWidth >
-                    Comprar
-                </Button>
-                </Link>
+            <Grid xs={3} alignItems='center' justifyContent='center' alignContent='center'>
+                <Card className={classes.root} >
+                    <CardActionArea className='card-produto'>
+                        <CardMedia
+                            className={classes.media}
+                            image={produto.foto}
+                            title="demonstração produto"
+                        />
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="h2">
+                                {produto.nome}
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p" >
+                                {produto.descricao}
+                            </Typography>
+                            <Typography gutterBottom variant="body2" color="textSecondary" component="p">
+                                {produto.categoria?.material}
+                            </Typography>
+                            <Typography variant='h6' component='h3' >
+                                R$ {produto.preco}
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                        <Link to={`/carrinho/${produto.id}`} className='text-decorator-none-login'>
+                            <Button variant="contained" className="botaoCompra" fullWidth >
+                                Comprar
+                            </Button>
+                        </Link>
 
-                </CardActions>
-            </Card>
+                    </CardActions>
+                </Card>
+            </Grid>
+
 
 
         ))
-
     }
 
     return (

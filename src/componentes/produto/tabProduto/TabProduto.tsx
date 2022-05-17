@@ -50,9 +50,9 @@ function TabProduto() {
     if(user !== "admin.admin@email.com"){
 
         tabProdutoComponent = <TabContext value={value}>
-            <AppBar position='static' >
-                <Tabs centered className='barra' onChange={handleChange}>
-                    <Tab label='Todos os Produtos' value='1' />
+            <AppBar position='static' className='barra'>
+                <Tabs centered onChange={handleChange}>
+                    <Tab label='Nossos produtos' value='1' className='tab-produto'/>
                 </Tabs>
             </AppBar>
             <TabPanel value='1'>

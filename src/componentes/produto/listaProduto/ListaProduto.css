@@ -16,8 +16,22 @@
     color: white !important;
     justify-content: center;
     margin-left: 12px;
+    align-self: center;
+}
+
+.btnDeletar {
+    background-color: #1E6B27 !important;
+    color: white !important;
+    justify-content: center;
+    margin-left: 12px;
+    align-self: center;
 }
 
 .botaoCompra:hover{
     background-color: #1E6B27 !important;
+}
+
+.card-produto{
+    border-radius: 40px;
+    background-color: #ebe3c8 !important;
 }
