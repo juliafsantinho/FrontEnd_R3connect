@@ -1,3 +1,11 @@
 .barra{
-    background: linear-gradient(36deg, #35A538 8%, #1E6B27 80%);
+    background: none !important;
+    background-color: transparent;
+    /* linear-gradient(36deg, #35A538 8%, #1E6B27 80%); */
+}
+
+.tab-produto{
+    color: #1E6B27 !important;
+    font-weight: bolder !important;
+    font-size:20px !important;
 }

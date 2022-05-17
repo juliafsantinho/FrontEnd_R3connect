@@ -112,7 +112,19 @@ function Navbar() {
     dispatch(addToken(''));
     handleMenuClose();
     navigate('/login')
+  }
 
+
+   function Perfil(){
+      handleMenuClose();
+      navigate('/perfil')
+    }
+
+
+ 
+  function Login(){
+    handleMenuClose();
+    navigate('/login')
 
   }
 
@@ -162,8 +174,10 @@ function Navbar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Perfil</MenuItem>
+      <MenuItem onClick={Perfil}>Perfil</MenuItem>
       <MenuItem onClick={handleMenuClose}>Minha conta</MenuItem>
+      <MenuItem onClick={Login}>Login</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Perfil</MenuItem>
       <MenuItem onClick={Logout}>Deslogar</MenuItem>
     </Menu>
   );
@@ -395,10 +409,10 @@ function Navbar() {
               </div>
             </Typography>
           </Link>
-          <Link to='/listarCategoria' className='text-decorator-none-navbar'>
+          <Link to='/listarProduto' className='text-decorator-none-navbar'>
             <Typography className={classes.title2} variant="h6" noWrap>
               <div className='margem-paginas'>
-                Lista Categoria
+                Produtos
               </div>
             </Typography>
           </Link>

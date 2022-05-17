@@ -3,4 +3,13 @@
     color: white !important;
     justify-content: center;
     margin-left: 12px;
+    border-radius: 20px !important;
+}
+
+.btnDelCat{
+    background-color: #1E6B27 !important;
+    color: white !important;
+    justify-content: center;
+    margin-left: 12px;
+    border-radius: 20px !important;
 }
