@@ -233,7 +233,6 @@ function Navbar() {
   var listarProduto;
   var navbarComponent;
   navbarComponent=
-  listarProduto=
   <div className={classes.grow}>
   <AppBar position="static">
     <Toolbar className="back">
@@ -280,19 +279,9 @@ function Navbar() {
        
       </div>
        */}
-      <div className={classes.sectionMobile}>
-        <IconButton
-          aria-label="show more"
-          aria-controls={mobileMenuId}
-          aria-haspopup="true"
-          onClick={handleMobileMenuOpen}
-          color="inherit"
-        >
-          <MoreIcon />
-        </IconButton>
-      </div>
-      <div>
-      <IconButton
+      <div className={classes.grow} />
+          <div className={classes.sectionDesktop}>
+            <IconButton
               edge="end"
               aria-label="account of current user"
               aria-controls={menuId}
@@ -488,16 +477,6 @@ function Navbar() {
           </div>))}
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 0 new mails" color="inherit">
-              <Badge badgeContent={0} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label="show 0 new notification" color="inherit">
-              <Badge badgeContent={0} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
             <IconButton
               edge="end"
               aria-label="account of current user"

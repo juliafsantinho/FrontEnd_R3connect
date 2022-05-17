@@ -2,6 +2,12 @@ img{
     width: 250px!important;
 }
 
+.caixaCart{
+    align-self: center;
+    justify-self: center;
+    margin:80px
+}
+
 .cardContainer{
     display: flex!important;
     width: 800px!important;
@@ -22,7 +28,6 @@ img{
 
 .cardProductButton{
     margin-bottom: 5px;
-    text-decoration: none;
 }
 .cardProductButton button{
     width: 200px!important;
@@ -33,5 +38,13 @@ img{
     color: white !important;
     justify-content: center;
     margin-left: 12px;
+}
+
+.botaoCancelarCompra{
+    background-color: #1E6B27 !important;
+    color: white !important;
+    justify-content: center;
+    margin-left: 12px;
+    border-radius: 50px !important;
 }
 

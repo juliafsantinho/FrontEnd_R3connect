@@ -85,7 +85,7 @@ function Cart() {
 
     return (
         <>
-            <Box m={2} display="flex" justifyContent="center">
+            <Box m={2} display="flex" justifyContent="center" className='caixaCart'>
                 <Card variant="outlined" className='cardContainer'>
 
                     <div className='cardProduct'>
@@ -93,7 +93,7 @@ function Cart() {
 
                         <div className='cardProductInfo'>
                             <Typography color="textSecondary" gutterBottom>
-                                Postagens
+                                Produto
                             </Typography>
 
                             <Typography variant="h5" component="h2">
@@ -136,7 +136,7 @@ function Cart() {
 
                     <Link to="/posts" className="cardProductButton">
                         <Box mx={1}>
-                            <Button variant="contained" size='small' color="secondary">
+                            <Button variant="contained" size='small' color="secondary" className='botaoCancelarCompra'>
                                 Cancelar
                             </Button>
                         </Box>
