@@ -57,8 +57,7 @@ function Sobre(){
                         <div className={classes.root}>
                             <Avatar alt="Remy Sharp" src="https://i.imgur.com/LPv1cnS.jpg" className={classes.large} />
                         </div>
-                 
-
+                
                     
                         <div className={classes.root}>
                             <Avatar alt="Remy Sharp" src="https://i.imgur.com/vcw7l12.png" className={classes.large} />
