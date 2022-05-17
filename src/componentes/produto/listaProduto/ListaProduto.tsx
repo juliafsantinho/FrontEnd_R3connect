@@ -42,7 +42,7 @@ function ListaProduto() {
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
     )
-    useEffect(() => {
+    /* useEffect(() => {
         if (token === '') {
             toast.error('Usuário não logado!', {
                 position: 'top-right',
@@ -59,7 +59,7 @@ function ListaProduto() {
             )
             history('/login')
         }
-    }, [token])
+    }, [token]) */
 
     useEffect(() => {
         getProdutos()

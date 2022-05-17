@@ -12,10 +12,7 @@ function Footer() {
         (state) => state.tokens
       );
 
-      var footerComponent;
-
-      if(token !== ""){
-        footerComponent = <Grid container direction="row" justifyContent="center" alignItems="center">
+      var footerComponent = <Grid container direction="row" justifyContent="center" alignItems="center">
         <Grid alignItems="center" item xs={12}>
             <Box className='box1'>
                 <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
@@ -39,7 +36,7 @@ function Footer() {
             </Box>
         </Grid>
     </Grid>
-    }
+
 
         return ( 
             <>
