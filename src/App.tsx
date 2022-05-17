@@ -17,20 +17,31 @@ import 'react-toastify/dist/ReactToastify.css';
 import CadastraProduto from './componentes/produto/cadastraProduto/CadastraProduto';
 import DeletaProduto from './componentes/produto/deletaProduto/DeletaProduto';
 import ListaProduto from './componentes/produto/listaProduto/ListaProduto';
-
+import { MenuLateral } from './componentes/estaticos/navbar/Navbar';
+import { DrawerProvider } from './componentes/contexts';
+import Cart from './componentes/cart/Cart';
+import Perfil from './paginas/perfil/Perfil'
 
 
 function App() {
   return (
 
+
     <Provider store = {store} >
       
+     
           <ToastContainer />
+          <DrawerProvider> 
           <Router>
+
+          <MenuLateral>
             <Navbar />
             <div style={{ minHeight: '100vh' }}>
+
+            
+
               <Routes>
-              <Route path='/' element={<Login/>}/>
+                <Route path='/' element={<Home/>}/>
                 <Route path='/home' element={<Home />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/sobre' element={<Sobre />} />
@@ -43,14 +54,19 @@ function App() {
                 <Route path='/cadastrarProduto/:id' element={<CadastraProduto/>}/>
                 <Route path='/deletarProduto/:id' element={<DeletaProduto/>}/>
                 <Route path='/listarProduto' element={<ListaProduto/>}/>
+                <Route path='/carrinho/:id' element={<Cart/>}/>
+                <Route path='/perfil' element={<Perfil/>}/>
+                <Route path='/listarProduto/nome/:nome' element={<ListaProduto/>}/>
 
 
 
               </Routes>
             </div>
+            </MenuLateral>
             <Footer />
 
           </Router>
+          </DrawerProvider>
       </Provider>
       
     

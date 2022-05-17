@@ -11,8 +11,6 @@ import ListaCategoria from '../../categoria/listaCategoria/ListaCategoria';
 
 function TabProduto() {
 
-
-
     const user = useSelector<TokenState, TokenState["usuarios"]>(
         (state) => state.usuarios
     );
@@ -27,8 +25,8 @@ function TabProduto() {
     if (user == "admin.admin@email.com") {
 
         tabProdutoComponent = <TabContext value={value}>
-            <AppBar position='static' >
-                <Tabs centered className='barra' onChange={handleChange}>
+            <AppBar position='static' className='barra'>
+                <Tabs centered onChange={handleChange} className="tab-produto">
                     <Tab label='Todos os Produtos' value='1' />
                     <Tab label='Todos as categorias' value='2' />
                 </Tabs>
@@ -43,11 +41,27 @@ function TabProduto() {
                     <ListaCategoria />
                 </Box>
             </TabPanel>
-
         </TabContext>
     }
 
     if(user !== "admin.admin@email.com"){
+
+        tabProdutoComponent = <TabContext value={value}>
+            <AppBar position='static' className='barra'>
+                <Tabs centered onChange={handleChange}>
+                    <Tab label='Nossos produtos' value='1' className='tab-produto'/>
+                </Tabs>
+            </AppBar>
+            <TabPanel value='1'>
+                <Box display='flex' flexWrap='wrap' justifyContent='center'>
+                    <ListaProduto />
+                </Box>
+            </TabPanel>
+        </TabContext>
+
+    }
+
+    if(user == ""){
 
         tabProdutoComponent = <TabContext value={value}>
             <AppBar position='static' >

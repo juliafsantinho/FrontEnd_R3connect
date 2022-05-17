@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
 import { alpha, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -21,6 +22,12 @@ import UserLogin from '../../../models/UserLogin';
 import './Navbar.css';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import { addToken } from '../../../store/tokens/action';
+import { Button } from '@material-ui/core';
+import { Home } from "@material-ui/icons";
+import {Avatar,  Divider,  Drawer,  List,  ListItemButton,  ListItemIcon,  ListItemText,  useTheme,} from "@mui/material";
+import { Box } from "@mui/system";
+import { useDrawerContext } from '../../contexts/DrawerContext';
+import Produto from '../../../models/Produto';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -99,13 +106,26 @@ function Navbar() {
   
   const dispatch = useDispatch();
   let navigate = useNavigate();
+  const { toggleDrawerOpen } = useDrawerContext();
 
 
   function Logout() {
     dispatch(addToken(''));
     handleMenuClose();
     navigate('/login')
+  }
 
+
+   function Perfil(){
+      handleMenuClose();
+      navigate('/perfil')
+    }
+
+
+ 
+  function Login(){
+    handleMenuClose();
+    navigate('/login')
 
   }
 
@@ -155,8 +175,8 @@ function Navbar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Perfil</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Minha conta</MenuItem>
+      <MenuItem onClick={Login}>Login</MenuItem>
+      <MenuItem onClick={Perfil}>Perfil</MenuItem>
       <MenuItem onClick={Logout}>Deslogar</MenuItem>
     </Menu>
   );
@@ -172,7 +192,7 @@ function Navbar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      {/* <MenuItem> 
         <IconButton aria-label="0 notifications" color="inherit">
           <Badge badgeContent={0} color="secondary">
             <MailIcon />
@@ -188,6 +208,7 @@ function Navbar() {
         </IconButton>
         <p>Notificações</p>
       </MenuItem>
+      */}
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -201,16 +222,22 @@ function Navbar() {
       </MenuItem>
     </Menu>
   );
-
-  var navbarComponent = <div className={classes.grow}>
+  const [listaProduto,setListaProduto]=useState<Produto[]>([])
+  var listarProduto;
+  var navbarComponent;
+  navbarComponent=
+  listarProduto=
+  <div className={classes.grow}>
   <AppBar position="static">
     <Toolbar className="back">
       <IconButton
+       onClick={toggleDrawerOpen}
         edge="start"
         className={classes.menuButton}
         color="inherit"
         aria-label="open drawer"
       >
+              
         <MenuIcon />
       </IconButton>
       <Link to='/home' className='text-decorator-none-navbar'>
@@ -226,11 +253,16 @@ function Navbar() {
           </div>
         </Typography>
       </Link>
-      <div className={classes.search}>
+       {/*<div className={classes.search}>
         <div className={classes.searchIcon}>
+         <Link to={`/listarProduto/nome/${produto.nome}`}> 
+          <Button>
           <SearchIcon />
+          </Button>
+          </Link>
         </div>
-        <InputBase
+      
+        <InputBase value={produto.nome}
           placeholder="Search…"
           classes={{
             root: classes.inputRoot,
@@ -238,7 +270,9 @@ function Navbar() {
           }}
           inputProps={{ 'aria-label': 'search' }}
         />
+       
       </div>
+       */}
       <div className={classes.sectionMobile}>
         <IconButton
           aria-label="show more"
@@ -255,14 +289,16 @@ function Navbar() {
   {renderMobileMenu}
   {renderMenu}
 </div>
-
-  
+ 
 
   if (token !== "" && user == "admin.admin@email.com") {
-    navbarComponent = <div className={classes.grow}>
+    
+    navbarComponent =
+    <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar className="back">
           <IconButton
+          onClick={toggleDrawerOpen}
             edge="start"
             className={classes.menuButton}
             color="inherit"
@@ -304,20 +340,26 @@ function Navbar() {
               </div>
             </Typography>
           </Link>
-          
+          {listarProduto=listaProduto.map(produto=>(
           <div className={classes.search}>
             <div className={classes.searchIcon}>
+           
+            <Link to={`/listarProduto/nome/${produto.nome}`}>
+          <Button>
               <SearchIcon />
+          </Button>
+
+            </Link>
             </div>
-            <InputBase
-              placeholder="Search…"
+             <InputBase value={produto.nome}
+              placeholder="Search…" 
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
               inputProps={{ 'aria-label': 'search' }}
             />
-          </div>
+          </div>))}
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 0 new mails" color="inherit">
@@ -358,11 +400,14 @@ function Navbar() {
       {renderMenu}
     </div>
 
-  } else if (token !== ""  && user !== "admin.admin@email.com"){
-    navbarComponent = <div className={classes.grow}>
+
+  } else if (token !==""  && user !== "admin.admin@email.com"){
+    navbarComponent = 
+    <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar className="back">
           <IconButton
+          onClick={toggleDrawerOpen}
             edge="start"
             className={classes.menuButton}
             color="inherit"
@@ -384,27 +429,33 @@ function Navbar() {
               </div>
             </Typography>
           </Link>
-          <Link to='/listarCategoria' className='text-decorator-none-navbar'>
+          <Link to='/listarProduto' className='text-decorator-none-navbar'>
             <Typography className={classes.title2} variant="h6" noWrap>
               <div className='margem-paginas'>
-                Lista Categoria
+                Produtos
               </div>
             </Typography>
           </Link>
-         
+          {listarProduto=listaProduto.map(produto=>(
           <div className={classes.search}>
             <div className={classes.searchIcon}>
+           
+            <Link to={`/listarProduto/nome/${produto.nome}`}>
+          <Button>
               <SearchIcon />
+          </Button>
+
+            </Link>
             </div>
-            <InputBase
-              placeholder="Search…"
+             <InputBase value={produto.nome}
+              placeholder="Search…" 
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
               inputProps={{ 'aria-label': 'search' }}
             />
-          </div>
+          </div>))}
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 0 new mails" color="inherit">
@@ -444,8 +495,9 @@ function Navbar() {
       {renderMobileMenu}
       {renderMenu}
     </div>
-    
+
   }
+  
   
   return (
       <>
@@ -454,5 +506,54 @@ function Navbar() {
   );
   
 }
+
+export const MenuLateral: React.FC = ({ children }) => {
+  const theme = useTheme();
+  const { isDrawerOpen, toggleDrawerOpen } = useDrawerContext();
+
+  return (
+    <>
+      <Drawer open={isDrawerOpen} variant='temporary' onClose={toggleDrawerOpen}>
+        <Box
+          width={theme.spacing(28)}
+          height="100%"
+          display="flex"
+          flexDirection={"column"}
+        >
+          <Box
+            width={"100%"}
+            height={theme.spacing(20)}
+            display="flex"
+            alignItems={"center"}
+            justifyContent={"center"}
+          >
+            <Avatar
+              sx={{ height: theme.spacing(12), width: theme.spacing(12) }}
+              alt="A"
+              src="/static/images/avatar/2.jpg"
+            />
+          </Box>
+
+          <Divider />
+
+          <Box flex={1}>
+            <List component="nav">
+              <ListItemButton>
+                <ListItemIcon>
+                   <Home></Home>
+                </ListItemIcon>
+                <ListItemText primary="Página inicial" />
+              </ListItemButton>
+            </List>
+          </Box>
+        </Box>
+      </Drawer>
+      <Box>
+        {children}
+      </Box>
+    </>
+  );
+  
+};
 
 export default Navbar;

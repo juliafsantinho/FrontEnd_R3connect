@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Categoria from "../../../models/Categoria";
-import { busca } from "../../../services/Service";
+import { busca, buscaC } from "../../../services/Service";
 import { TokenState } from "../../../store/tokens/tokensReducer";
 
 function ListaCategoria() {
@@ -36,7 +36,7 @@ function ListaCategoria() {
   
   
     async function getCategoria(){
-      await busca("/categoria", setCategoria, {
+      await buscaC("/categoria", setCategoria, {
         headers: {
           'Authorization': token
         }
@@ -71,15 +71,15 @@ function ListaCategoria() {
   
                 <Link to={`/cadastrarCategoria/${categoria.id}`} className="text-decorator-none">
                   <Box mx={1}>
-                    <Button variant="contained" className="marginLeft" size='small' color="primary" >
-                      atualizar
+                    <Button variant="contained" className="botaoCompra" size='small' color="primary">
+                      Atualizar
                     </Button>
                   </Box>
                 </Link>
                 <Link to={`/deletarCategoria/${categoria.id}`} className="text-decorator-none">
                   <Box mx={1}>
-                    <Button variant="contained" size='small' color="secondary">
-                      deletar
+                    <Button variant="contained" className="btnDelCat" size='small' color="secondary">
+                      Deletar
                     </Button>
                   </Box>
                 </Link>
