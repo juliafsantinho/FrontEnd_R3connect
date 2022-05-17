@@ -11,11 +11,19 @@
 
 .tituloC{
     font-weight: bold!important;
+    color: #1E6B27 !important;
 }
 
-.button{
-    padding:11px!important;
+.buttonCad{
     margin:33px!important;
+    background-color: #35A538 !important;
+    border-radius: 50px !important;
+
+}
+
+.buttonCad2{
+    border-radius: 50px !important;
+    background-color: #1E6B27 !important;
 }
 
 .margin-bottom{
@@ -24,4 +32,11 @@
 
 .text-decorator-none{
  text-decoration: none;
+}
+
+.camposCad{
+    background-color: #e2cec6 !important;
+    text-decoration-color: black;
+    margin-bottom: 20px!important;
+
 }

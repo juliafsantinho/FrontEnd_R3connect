@@ -102,18 +102,18 @@ function CadastroUsuario() {
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='tituloC'>
                             Cadastre-se
                         </Typography>
-                        <TextField value={usuarioCadastro.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='nome' label='nome' name='nome' variant='outlined' placeholder='Insira um nome de no mínimo cinco caractéres' required fullWidth />
-                        <TextField value={usuarioCadastro.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='usuario' label='usuário' name='usuario' placeholder='Insira seu email' variant='outlined' required fullWidth  />
-                        <TextField value={usuarioCadastro.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' type='password' id='senha' label='senha' name='senha' placeholder='Insira uma senha de no mínimo oito digitos' variant='outlined' required fullWidth  />
-                        <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} className='margin-bottom' id='senha' type='password' label='confirmar senha' name='senha' placeholder='Insira a senha novamente' variant='outlined' required fullWidth  />
-                        <TextField value={usuarioCadastro.cep} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='cep' label='cep' name='cep' variant='outlined'  placeholder='Insira seu cep com traço' fullWidth required />
-                        <TextField value={usuarioCadastro.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom' id='foto' label='foto' name='foto' placeholder='Insira um link de uma foto' variant='outlined' fullWidth  />  
-                        <TextField value={usuarioCadastro.contribuicao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='contribuicao' label='contribuição' name='contribuicao' variant='outlined' fullWidth placeholder='Insira o quanto deseja contribuir para causas sociais e ambientais' />
+                        <TextField value={usuarioCadastro.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom, camposCad' id='nome' label='nome' name='nome' variant='outlined' placeholder='Insira um nome de no mínimo cinco caractéres' required fullWidth />
+                        <TextField value={usuarioCadastro.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom, camposCad' id='usuario' label='usuário' name='usuario' placeholder='Insira seu email' variant='outlined' required fullWidth  />
+                        <TextField value={usuarioCadastro.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom, camposCad' type='password' id='senha' label='senha' name='senha' placeholder='Insira uma senha de no mínimo oito digitos' variant='outlined' required fullWidth  />
+                        <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} className='margin-bottom, camposCad' id='senha' type='password' label='confirmar senha' name='senha' placeholder='Insira a senha novamente' variant='outlined' required fullWidth  />
+                        <TextField value={usuarioCadastro.cep} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom, camposCad' id='cep' label='cep' name='cep' variant='outlined'  placeholder='Insira seu cep com traço' fullWidth required />
+                        <TextField value={usuarioCadastro.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom, camposCad' id='foto' label='foto' name='foto' placeholder='Insira um link de uma foto' variant='outlined' fullWidth  />  
+                        <TextField value={usuarioCadastro.contribuicao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='margin-bottom, camposCad' id='contribuicao, camposCad' label='contribuição' name='contribuicao' variant='outlined' fullWidth placeholder='Insira o quanto deseja contribuir para causas sociais e ambientais' />
 
                         <Box marginTop={1} textAlign='center'>
-                            <Button type='submit' variant='contained' color='primary' className='button'>Cadastrar</Button>
+                            <Button type='submit' variant='contained' color='primary' className='buttonCad'>Cadastrar</Button>
                             <Link to='/login' className='text-decorator-none'>
-                                <Button variant='contained' color='secondary' className='button'>Cancelar</Button>
+                                <Button variant='contained' color='secondary' className='buttonCad2'>Cancelar</Button>
                             </Link>
                         </Box>
 
