@@ -5,11 +5,11 @@ import './CarouselComponent.css';
 
 function CarouselComponent () {
     var items = [
-        {img: "https://i.imgur.com/0MaUWmS.png"},
-        {img: "https://i.imgur.com/wWTKSYU.png"},
-        {img: "https://i.imgur.com/f1al4Di.png"},
-        {img: "https://i.imgur.com/q7ZwNOZ.png"},
-        {img: "https://i.imgur.com/C7wsCg3.png"},
+        {img: "https://i.imgur.com/4795J7M.png"},
+        {img: "https://i.imgur.com/kFepxAO.png"},
+        {img: "https://i.imgur.com/Z7xKci3.png"},
+        {img: "https://i.imgur.com/xW26rFN.png"},
+        {img: "https://i.imgur.com/shqoTcx.png"},
     ]
 
     return (
