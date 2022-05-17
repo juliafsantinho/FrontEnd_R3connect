@@ -129,7 +129,8 @@ function ListaProduto() {
     if (user !== "admin.admin@email.com") {
 
         listaProdutoComponent = listaProduto.map(produto => (
-            <Grid xs={3} alignItems='center' justifyContent='center' alignContent='center'>
+            <Grid xs={3} alignItems='center' justifyContent='center' alignContent='center'  className='caixa-produto'>
+                <Box display='flex'>
                 <Card className={classes.root} >
                     <CardActionArea className='card-produto'>
                         <CardMedia
@@ -161,6 +162,7 @@ function ListaProduto() {
 
                     </CardActions>
                 </Card>
+                </Box>
             </Grid>
 
 
@@ -171,7 +173,8 @@ function ListaProduto() {
     if (user == "") {
 
         listaProdutoComponent = listaProduto.map(produto => (
-            <Grid xs={3} alignItems='center' justifyContent='center' alignContent='center'>
+            <Grid xs={3} alignItems='center' justifyContent='center' alignContent='center' className='caixa-produto'>
+                <Box display='flex'>
                 <Card className={classes.root} >
                     <CardActionArea className='card-produto'>
                         <CardMedia
@@ -203,6 +206,7 @@ function ListaProduto() {
 
                     </CardActions>
                 </Card>
+                </Box>
             </Grid>
 
 

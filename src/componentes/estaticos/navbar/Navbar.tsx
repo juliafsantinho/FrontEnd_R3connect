@@ -129,6 +129,12 @@ function Navbar() {
 
   }
 
+  function Cadastro(){
+    handleMenuClose();
+    navigate('/cadastrar')
+
+  }
+
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -177,7 +183,8 @@ function Navbar() {
     >
       <MenuItem onClick={Login}>Login</MenuItem>
       <MenuItem onClick={Perfil}>Perfil</MenuItem>
-      <MenuItem onClick={Logout}>Deslogar</MenuItem>
+      <MenuItem onClick={Logout}>Logout</MenuItem>
+      <MenuItem onClick={Cadastro}>Cadastre-se</MenuItem>
     </Menu>
   );
 

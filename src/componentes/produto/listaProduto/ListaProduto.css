@@ -6,9 +6,10 @@
 .marginEsquerda{
 
     margin-left: 12px;
-    
+}
 
-
+.caixa-produto{
+    background: transparent !important;
 }
 
 .botaoCompra{

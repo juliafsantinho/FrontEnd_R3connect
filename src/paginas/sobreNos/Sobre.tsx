@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     large: {
       width: theme.spacing(30),
       height: theme.spacing(30),
+      padding: 20
     },
   }));
 
@@ -38,14 +39,10 @@ function Sobre(){
                         ele pretendemos apoiar a ODS 12 que trata sobre o consumo e produção sustentáveis, através de uma logística reversa para comercialização
                          dos nossos produtos.
                         </Typography>
-                        <Typography variant="h4" gutterBottom color="textPrimary" component="h4" align="center" className="titulo">Este Ecommerce foi desenvolvido por: </Typography>
+                        <Typography variant="h4" gutterBottom color="textPrimary" component="h4" align="center" className="titulo"> Nosso time: </Typography>
                     </Box>
                 </Grid>
-                
-                <Grid xs={12} className="postagem">
-                </Grid>
-
-                <Grid  direction="row" alignItems="center" justifyContent="center" container item xs={12}>
+                <Grid direction="row" alignItems="center" justifyContent="center" container item xs={10}>
                     
                    
                         <div className={classes.root}>
