@@ -27,8 +27,8 @@ function TabProduto() {
     if (user == "admin.admin@email.com") {
 
         tabProdutoComponent = <TabContext value={value}>
-            <AppBar position='static' >
-                <Tabs centered className='barra' onChange={handleChange}>
+            <AppBar position='static' className='barra'>
+                <Tabs centered onChange={handleChange} className="tab-produto">
                     <Tab label='Todos os Produtos' value='1' />
                     <Tab label='Todos as categorias' value='2' />
                 </Tabs>
