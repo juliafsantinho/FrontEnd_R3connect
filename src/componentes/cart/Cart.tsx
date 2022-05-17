@@ -134,7 +134,7 @@ function Cart() {
                         </Box>
                     </Box>
 
-                    <Link to="/posts" className="cardProductButton">
+                    <Link to="/listarProduto" className="cardProductButton">
                         <Box mx={1}>
                             <Button variant="contained" size='small' color="secondary">
                                 Cancelar
