@@ -14,7 +14,12 @@ export const cadastroUsuario = async(url: any, dados: any, setDados: any) => {
     setDados(resposta.data)
 }
 
-export const busca = async(url: any,setDado: any, header: any) => { 
+ export const busca = async(url: any,setDado: any, header:any) => { 
+    const resposta = await api.get(url)
+    setDado(resposta.data)
+}
+
+export const buscaC = async(url: any,setDado: any,header:any) => { 
     const resposta = await api.get(url,header)
     setDado(resposta.data)
 }
@@ -37,3 +42,9 @@ export const put = async(url: any, dados: any, setDado: any, header: any) => {
 export const deleteId = async(url: any,header: any) => { 
     await api.delete(url,header)
 }
+
+export const buscaNome =async(url:any,setDado:any,header:any)=>{
+   const resposta= await api.get(url,header)
+   setDado=(resposta.data)
+
+    }

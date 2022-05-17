@@ -71,11 +71,11 @@ function ListaProduto() {
             headers: {
                 'Authorization': token
             }
-        })
+        } )
     }
 
 
-    var listaProdutoComponent
+    var listaProdutoComponent 
 
     if (user == "admin.admin@email.com") {
 
@@ -127,6 +127,48 @@ function ListaProduto() {
     }
 
     if (user !== "admin.admin@email.com") {
+
+        listaProdutoComponent = listaProduto.map(produto => (
+            <Grid xs={3} alignItems='center' justifyContent='center' alignContent='center'>
+                <Card className={classes.root} >
+                    <CardActionArea className='card-produto'>
+                        <CardMedia
+                            className={classes.media}
+                            image={produto.foto}
+                            title="demonstração produto"
+                        />
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="h2">
+                                {produto.nome}
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p" >
+                                {produto.descricao}
+                            </Typography>
+                            <Typography gutterBottom variant="body2" color="textSecondary" component="p">
+                                {produto.categoria?.material}
+                            </Typography>
+                            <Typography variant='h6' component='h3' >
+                                R$ {produto.preco}
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                        <Link to={`/carrinho/${produto.id}`} className='text-decorator-none-login'>
+                            <Button variant="contained" className="botaoCompra" fullWidth >
+                                Comprar
+                            </Button>
+                        </Link>
+
+                    </CardActions>
+                </Card>
+            </Grid>
+
+
+
+        ))
+    }
+
+    if (user == "") {
 
         listaProdutoComponent = listaProduto.map(produto => (
             <Grid xs={3} alignItems='center' justifyContent='center' alignContent='center'>
