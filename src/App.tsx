@@ -17,19 +17,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import CadastraProduto from './componentes/produto/cadastraProduto/CadastraProduto';
 import DeletaProduto from './componentes/produto/deletaProduto/DeletaProduto';
 import ListaProduto from './componentes/produto/listaProduto/ListaProduto';
-
-
 import { MenuLateral } from './componentes/estaticos/navbar/Navbar';
 import { DrawerProvider } from './componentes/contexts';
-
 import Cart from './componentes/cart/Cart';
-
 import Perfil from './paginas/perfil/Perfil'
-
-
-
-
-
 
 
 function App() {
