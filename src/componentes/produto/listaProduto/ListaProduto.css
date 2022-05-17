@@ -17,6 +17,7 @@
     justify-content: center;
     margin-left: 12px;
     align-self: center;
+    border-radius: 30px !important;
 }
 
 .btnDeletar {

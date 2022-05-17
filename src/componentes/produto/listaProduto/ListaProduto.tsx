@@ -10,7 +10,7 @@ import { toast } from 'react-toastify'
 import { makeStyles } from '@material-ui/core/styles';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
-import { borderRadius, width } from '@mui/system';
+import { borderRadius, padding, width } from '@mui/system';
 import { AlignHorizontalCenter } from '@mui/icons-material';
 
 const useStyles = makeStyles({
@@ -19,11 +19,13 @@ const useStyles = makeStyles({
         margin: 12,
         width: 300,
         borderRadius: 20,
+        backgroundColor: '#ebe3c8',
+        alignContent: 'center'
     },
     media: {
         height: 200,
         margin: 10,
-        borderRadius: 30
+        borderRadius: 20
     },
 });
 
