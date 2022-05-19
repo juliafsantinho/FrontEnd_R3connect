@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import "./ListaCategoria.css";
 import Categoria from "../../../models/Categoria";
 import { busca, buscaC } from "../../../services/Service";
 import { TokenState } from "../../../store/tokens/tokensReducer";
@@ -54,7 +55,7 @@ function ListaCategoria() {
 
       listaCategoriaComponent =  categoria.map(categoria =>(
         <Box m={2} >
-          <Card variant="outlined">
+          <Card variant="outlined" className="card-categoria">
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
                 Categoria

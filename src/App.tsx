@@ -21,6 +21,7 @@ import { MenuLateral } from './componentes/estaticos/navbar/Navbar';
 import { DrawerProvider } from './componentes/contexts';
 import Cart from './componentes/cart/Cart';
 import Perfil from './paginas/perfil/Perfil'
+import TabProduto from './componentes/produto/tabProduto/TabProduto';
 
 
 function App() {
@@ -53,7 +54,7 @@ function App() {
                 <Route path='/cadastrarProduto' element={<CadastraProduto/>}/>
                 <Route path='/cadastrarProduto/:id' element={<CadastraProduto/>}/>
                 <Route path='/deletarProduto/:id' element={<DeletaProduto/>}/>
-                <Route path='/listarProduto' element={<ListaProduto/>}/>
+                <Route path='/listarProduto' element={<TabProduto/>}/>
                 <Route path='/carrinho/:id' element={<Cart/>}/>
                 <Route path='/perfil' element={<Perfil/>}/>
                 <Route path='/listarProduto/nome/:nome' element={<ListaProduto/>}/>

@@ -13,3 +13,8 @@
     margin-left: 12px;
     border-radius: 20px !important;
 }
+
+.card-categoria{
+    border-radius: 40px;
+    background-color: #ebe3c8 !important;
+}
