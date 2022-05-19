@@ -388,7 +388,7 @@ function Navbar() {
             </IconButton>
             <IconButton aria-label="show 0 new notification" color="inherit">
               <Badge badgeContent={0} color="secondary">
-                //icone notificacao
+                
               </Badge>
             </IconButton>
             <IconButton
