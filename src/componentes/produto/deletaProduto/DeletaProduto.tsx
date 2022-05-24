@@ -72,7 +72,7 @@ function DeletaProduto() {
   return (
     <>
       <Box m={2}>
-        <Card variant="outlined" >
+        <Card variant="outlined" className='card-categoria' >
           <CardContent>
             <Box justifyContent="center">
               <Typography color="textSecondary" gutterBottom>
@@ -92,7 +92,7 @@ function DeletaProduto() {
               </Button>
               </Box>
               <Box>
-              <Button  onClick={nao} variant="contained" size='large' color="secondary">
+              <Button  onClick={nao} variant="contained" className="btnDelCat" size='large' color="secondary">
                 Não
               </Button>
               </Box>

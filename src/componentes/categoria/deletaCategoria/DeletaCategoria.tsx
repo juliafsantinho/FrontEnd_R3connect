@@ -79,7 +79,7 @@ function DeletaCategoria() {
   return (
     <>
       <Box m={2}>
-        <Card variant="outlined">
+        <Card variant="outlined" className="card-categoria">
           <CardContent>
             <Box justifyContent="center">
               <Typography color="textSecondary" gutterBottom>
@@ -93,12 +93,12 @@ function DeletaCategoria() {
           <CardActions>
             <Box display="flex" justifyContent="start" ml={1.0} mb={2} >
               <Box mx={2}>
-                <Button onClick={sim} variant="contained" className="botaoCompra" size='large' color="primary">
+                <Button onClick={sim} variant="contained" className="botaoCompra" size='small' color="primary">
                   Sim
                 </Button>
               </Box>
               <Box mx={2}>
-                <Button onClick={nao} variant="contained" size='large' color="secondary">
+                <Button onClick={nao} variant="contained" className="btnDelCat" size='small' >
                   Não
                 </Button>
               </Box>
