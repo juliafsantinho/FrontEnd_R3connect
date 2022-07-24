@@ -1,50 +1,36 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+<div align="center">
+   <img src="https://i.imgur.com/3MMOrPF.jpg?1" title="source: imgur.com" width=100%"/>
+</div>
+<br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 
 
-## Available Scripts
+## 🗨 O que é o nosso projeto?
+A R3Connect surgiu com o objetivo de reduzir a produção de resíduos sólidos (secos e orgânicos) e consequentemente gerar uma fonte maior e mais segura de renda para as pessoas que dependem do trabalho da reciclagem e reutilização. Os 3 R's são a base do nosso projeto e com ele pretendemos apoiar a ODS 12 que trata sobre o consumo e produção sustentáveis, através de uma logística reversa para comercialização dos nossos produtos.
 
-In the project directory, you can run:
+## 🟢 Quais tecnologias usamos?
+<div align="center">
+   <img src="https://i.imgur.com/ZuOwUY5.jpg?1" title="source: imgur.com" width=60%"/>
+</div>
 
-### `npm start`
+## 🟢 Gestão utilizada
+<div align="center">
+   <img src="https://i.imgur.com/gU0jnST.jpg" title="source: imgur.com" width=60%"/>
+</div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🟢 A cara do nosso projeto
+✔ Carrossel de imagens e a aba footer
+<div align="center">
+   <img src="https://i.imgur.com/NVEjKmt.png" title="source: imgur.com" width=80%"/>
+</div>
+✔ Nossos produtos
+<div align="center">
+   <img src="https://i.imgur.com/fogPoLH.png" title="source: imgur.com" width=80%"/>
+</div>
+✔ Final da listagem de produtos e a navbar
+<div align="center">
+   <img src="https://i.imgur.com/HantcA1.png" title="source: imgur.com" width=80%"/>
+</div>
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-=======
-# frontend
->>>>>>> a816fc76af4b8fb1da60f56ff35aad2a7e2d9c4e
