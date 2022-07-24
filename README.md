@@ -20,17 +20,33 @@ A R3Connect surgiu com o objetivo de reduzir a produção de resíduos sólidos 
 
 
 ## 🟢 A cara do nosso projeto
+                                                                                                                                                                
 ✔ Carrossel de imagens e a aba footer
+                                                                                  
 <div align="center">
    <img src="https://i.imgur.com/NVEjKmt.png" title="source: imgur.com" width=80%"/>
 </div>
-✔ Nossos produtos
+
+<br>
+
+✔ Nossos produtos e a navbar
+
 <div align="center">
    <img src="https://i.imgur.com/fogPoLH.png" title="source: imgur.com" width=80%"/>
 </div>
-✔ Final da listagem de produtos e a navbar
 <div align="center">
    <img src="https://i.imgur.com/HantcA1.png" title="source: imgur.com" width=80%"/>
 </div>
 
+## 🟢 Implementações futuras
 
+<div align="center">
+   <img src="https://i.imgur.com/jiMddq0.jpg" title="source: imgur.com" width=40%"/>
+</div>
+                                                                                  
+ #
+## 🟢 Nosso time
+<div align="center">
+ <img src="https://i.imgur.com/sjj3wlA.jpg?1" title="source: imgur.com" width=100%"/>
+</div>                                                                            
+                                                                                  
